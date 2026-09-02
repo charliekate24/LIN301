@@ -57,7 +57,7 @@ cp ~/301_2026/homework/hw1_command_prompt.qmd ./hw1_command_prompt_lastname_firs
 
 **Question:** What's the difference between `rmdir` and `rm -r`? Why did you need `rm -r` in step 7 and not `rmdir`?
 
-------------------------------------------------------------------------
+rmdir only removes empty directories,while rm -r removes a directory and everything inside it.I needed rm -r in step 7 becaus ethe folder could contain files or othe ritems, so rmdir would not work if it was not empty. ------------------------------------------------------------------------
 
 ## Part 2 — Counting & Searching
 
@@ -65,7 +65,24 @@ cp ~/301_2026/homework/hw1_command_prompt.qmd ./hw1_command_prompt_lastname_firs
 10. Use `grep` to find every line containing the name **"Watson"**. Then pipe that into `wc -l` to get a single count of how many lines mention him.
 11. Do the same for **"Holmes"**. Which name appears on more lines?
 
-------------------------------------------------------------------------
+9.
+wc holmes.txt 
+12310 107558 607606 holmes.txt 
+wc -l holmes.txt 
+12310 holmes.txt 
+wc -w holmes.txt
+107558 holmes.txt
+
+10.
+grep "Watson" holmes.txt | wc -l
+81
+
+11.
+grep "Holmes" holmes.txt | wc -l
+460
+
+Holmes appears on more lines than Watson. 
+-----------------------------------------------------------------------
 
 ## Part 3 — Regex Challenges
 
@@ -76,6 +93,14 @@ Using `grep -E` on `holmes.txt`, find each of the following. For each one, write
 3.  All lines that end in a question mark (remember `?` is a special character in regex — you'll need to escape it with `\`).
 4.  All instances of a letter repeated twice in a row (like "ee" in "sleep" or "ss" in "glass"), using a backreference.
 5.  The total number of times "he" or "He" or "she" or "She" appears as its own word (not buried inside a longer word like "the" or "shelf").
+
+1.
+Command: grep -Eo 'b\(Holmes|Watson)\w*' holmes.txt
+
+2. 
+Command: grep -Eo '\b[A-Za-z]{5}\b' holmes.txt
+Result: 11599 five-letter words
+
 
 ------------------------------------------------------------------------
 
@@ -143,3 +168,5 @@ Your `LIN_301` repo is public, so instead of uploading a file to Canvas, you'll 
 | Criteria | Points |
 |-----------------------------------------|:-----------------------------:|
 | File named correctly; commands and answers clearly organized by part; reflection included; GitHub link points to the `hw1` folder | 5 |
+## Part 4 - Reflection 
+The easiest part of this assignment was navigating my way through the directories once I understood how the commands worked. The hardest part was using grep because small characters could completely change the results. I learned that regex can be useful for finding specific patterns in a large amount of text. For example, I could use it to tell how often certain pronouns or word endingds are used throughout the text.  
