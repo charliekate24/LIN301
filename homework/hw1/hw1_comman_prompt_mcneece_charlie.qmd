@@ -101,7 +101,16 @@ Command: grep -Eo 'b\(Holmes|Watson)\w*' holmes.txt
 Command: grep -Eo '\b[A-Za-z]{5}\b' holmes.txt
 Result: 11599 five-letter words
 
+3. 
+Command: grep -E '\?$' holmes.txt 
+Result: 18 lines end in a question mark
 
+4. 
+Command: grep -Eo '([A-Za-z])\l' holmes.txt | wc -l 
+Result: 12352 instances of a letter repeated twice in a row 
+
+5. Command: grep -Eoi '\b(he|she)\b' holmes.txt | wc -l
+Result: 1912 instances of "he" or "she" as their own word 
 ------------------------------------------------------------------------
 
 ## Part 4 — Reflection
@@ -111,7 +120,7 @@ At the bottom of your document, write a short (3–5 sentence) reflection:
 -   What was the easiest part of this assignment? What was the hardest?
 -   Now that you've used `grep` and regex on an English text, can you think of a linguistic question (phonological, morphological, syntactic) you could investigate this way on a text or corpus?
 
-------------------------------------------------------------------------
+The easiest part of this assignment was navigating my way through the directories once I understood how the commands worked. The hardest part was using grep because small characters could completely change the results. I learned that regex can be useful for finding specific patterns in a large amount of text. For example, I could use it to tell how often certain pronouns or word endingds are used throughout the text. ------------------------------------------------------------------------
 
 ## Submission
 
@@ -169,4 +178,4 @@ Your `LIN_301` repo is public, so instead of uploading a file to Canvas, you'll 
 |-----------------------------------------|:-----------------------------:|
 | File named correctly; commands and answers clearly organized by part; reflection included; GitHub link points to the `hw1` folder | 5 |
 ## Part 4 - Reflection 
-The easiest part of this assignment was navigating my way through the directories once I understood how the commands worked. The hardest part was using grep because small characters could completely change the results. I learned that regex can be useful for finding specific patterns in a large amount of text. For example, I could use it to tell how often certain pronouns or word endingds are used throughout the text.  
+ 
