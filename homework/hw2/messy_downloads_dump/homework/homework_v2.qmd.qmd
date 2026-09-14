@@ -1,0 +1,16 @@
+---
+title: "HW3: Loops & Conditionals"
+---
+
+## Problem 1
+
+Write a for loop that counts the number of vowels in a string.
+
+## Problem 2
+
+Write a conditional that classifies a word as "short" (<4 letters),
+"medium" (4-7 letters), or "long" (8+ letters).
+
+## Problem 3 (added after class discussion)
+
+Write a while loop version of Problem 1.
