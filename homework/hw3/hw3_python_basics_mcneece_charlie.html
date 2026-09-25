@@ -143,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Every code block we’ve read together in class, and everything you wrote for HW1 and HW2, was just <em>documentation</em> — Quarto never actually executed it. This assignment is different: your code needs to actually run and produce real output.</p>
 <p>To make a code chunk <strong>executable</strong>, fence it with <code>{python}</code> instead of plain <code>python</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>::: {#6954d683 .cell execution_count=1}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>::: {#fab051f5 .cell execution_count=1}</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.python .cell-code}</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this runs"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Suppose you wanted to read all 24 books at a steady pace over 7 weeks. Create <code>books_per_week</code> using floor division (<code>//</code>), and <code>leftover_books</code> using modulus (<code>%</code>). Print both — what do they tell you about your reading plan?</li>
 <li>Print the <code>type()</code> of <code>books</code>, <code>total_years_away</code>, and <code>books_per_week</code>. Are any of them different from what you expected?</li>
 </ol>
-<div id="08bc6b8b" class="cell" data-execution_count="2">
+<div id="63c06118" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>books <span class="op">=</span> <span class="dv">24</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>war_years <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>journey_years <span class="op">=</span> <span class="dv">10</span></span>
@@ -205,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Concatenate <code>hero</code> and <code>epithet</code> with <code>+</code> (remember the space won’t appear on its own). Then print <code>hero</code> and <code>epithet</code> the other way, with <code>print(hero, epithet)</code>. What’s different about the two outputs?</li>
 <li>Homer is sometimes translated as calling him “the man of twists and turns.” Assign that <strong>exact sentence, including the quotation marks,</strong> to a variable called <code>homer_quote</code>. You’ll need to either escape the internal quotes with <code>\"</code> or use a different quote character to wrap the string — your call, just make it run without a <code>SyntaxError</code>.</li>
 </ol>
-<div id="2bbf97a5" class="cell" data-execution_count="3">
+<div id="cb2e9218" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hero <span class="op">=</span> <span class="st">"Odysseus"</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>epithet <span class="op">=</span> <span class="st">"man of many wiles"</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -232,7 +232,7 @@ Homer is sometimes translated as calling him "the man of twists and turns."</cod
 <li>Create two more variables: <code>is_first_book</code> (<code>True</code> if <code>book_number</code> is 1) and <code>is_last_book</code> (<code>True</code> if <code>book_number</code> is 24).</li>
 <li>Create <code>is_bookend</code>, combining the two above with <code>or</code> — <code>True</code> if your chosen book is either the first or the last. Print <code>book_number</code> and <code>is_bookend</code> together in one <code>print()</code> call.</li>
 </ol>
-<div id="c7982736" class="cell" data-execution_count="4">
+<div id="f92d2dc4" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>years_match <span class="op">=</span> war_years <span class="op">==</span> journey_years </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(years_match) </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -256,7 +256,7 @@ Homer is sometimes translated as calling him "the man of twists and turns."</cod
 <li>Pick a book number from 1–24. Create three variables: <code>book_number</code> (an int), <code>my_guess</code> (a string — your own one-sentence guess about what might happen in that book; it doesn’t need to be accurate), and <code>is_double_digit</code> (a boolean — whether <code>book_number</code> is 10 or greater).</li>
 <li>Print all three variables, then print the <code>type()</code> of each one.</li>
 </ol>
-<div id="c4020bb4" class="cell" data-execution_count="5">
+<div id="15d90ae6" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>book_number <span class="op">=</span> <span class="dv">15</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>my_guess <span class="op">=</span> <span class="st">"Odysseus faces another challenge on his journey home."</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>is_double_digit <span class="op">=</span> book_number <span class="op">&gt;=</span> <span class="dv">10</span> </span>
@@ -287,12 +287,12 @@ True
 <p>In the Terminal, download Samuel Butler’s 1900 prose translation of the <em>Odyssey</em> from Project Gutenberg, saving it as <code>odyssey.txt</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-o</span> odyssey.txt https://www.gutenberg.org/cache/epub/1727/pg1727.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then, in a Python code chunk in your <code>.qmd</code>, load it into a string:</p>
-<div id="4821a7dc" class="cell" data-execution_count="6">
+<div id="f3c75ff4" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"odyssey.txt"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> f.read()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>New trick:</strong> <code>.split()</code>, called on a string with no arguments, breaks it into a list of words, splitting wherever there’s whitespace (spaces, tabs, line breaks):</p>
-<div id="cbf8e8c7" class="cell" data-execution_count="7">
+<div id="f7c08a6b" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> text.split()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -303,6 +303,16 @@ True
 <li>Use slicing to print the first 20 words: <code>words[0:20]</code>. Does this look like the actual poem, or something else?</li>
 <li>Try a few different slices, further into the list, until you find one that clearly looks like real Homer rather than Project Gutenberg’s own text. Record the slice (the indices) you used, and what it printed.</li>
 </ol>
+<div id="c30efb7c" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(words))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(words[<span class="dv">0</span>:<span class="dv">20</span>])</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(words[<span class="dv">5000</span>:<span class="dv">5020</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>132609
+['The', 'Project', 'Gutenberg', 'eBook', 'of', 'The', 'Odyssey', 'This', 'eBook', 'is', 'for', 'the', 'use', 'of', 'anyone', 'anywhere', 'in', 'the', 'United', 'States']
+['your', 'race', 'dying', 'out', 'yet,', 'while', 'Penelope', 'has', 'such', 'a', 'fine', 'son', 'as', 'you', 'are.', 'But', 'tell', 'me,', 'and', 'tell']</code></pre>
+</div>
+</div>
 </section>
 <section id="sets" class="level3">
 <h3 class="anchored" data-anchor-id="sets">Sets</h3>
@@ -311,18 +321,91 @@ True
 <li>Compute the type-token ratio for the whole file: <code>len(unique_words) / len(words)</code>.</li>
 <li>On Day 14 in class, the two 23-word opening lines we analyzed had type-token ratios around 0.78 and 0.91. Compare those to the ratio you just got for the whole <em>Odyssey</em>. Is it higher or lower — and in 2–3 sentences, explain <em>why</em> you think that happens as a text gets longer.</li>
 </ol>
+<div id="44504a5f" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>unique_words <span class="op">=</span> <span class="bu">set</span>(words)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(unique_words))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(unique_words) <span class="op">/</span> <span class="bu">len</span>(words))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>14221
+0.10724008174407469</code></pre>
+</div>
+</div>
+<p>The type token ratio for the whoel Odyssey is about 0.107, which is much lower than the ratios of 0.78 and 0.91 from the short passages. As a text gets longer, words are repeated more often, so the number og the total words grows much faster than the number of unique words.</p>
 </section>
 <section id="dictionaries" class="level3">
 <h3 class="anchored" data-anchor-id="dictionaries">Dictionaries</h3>
 <p><strong>New trick:</strong> <code>.find()</code> works like the list <code>.index()</code> you already know from Day 12, but on a string — it returns the position where a match starts, or <code>-1</code> if there isn’t one.</p>
 <ol start="20" type="1">
 <li>Try <code>text.count("Odysseus")</code>. What do you get?</li>
+</ol>
+<div id="7e5f53a8" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text.count(<span class="st">"Odysseus"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5</code></pre>
+</div>
+</div>
+<ol start="21" type="1">
 <li>Whatever number you got, don’t assume it means “Odysseus” is scattered evenly through the poem. Use <code>position = text.find("Odysseus")</code> to find where one match starts, then slice out <code>text[position - 150 : position + 150]</code> to read the sentence around it. Where does it actually turn up — in the middle of a book, or somewhere more limited, like the front matter? Once you’ve looked, use <code>"Ulysses" in text</code> to check which name Butler’s own narrative actually relies on, then find the count that works.</li>
+</ol>
+<div id="c3a921e8" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>position <span class="op">=</span> text.find(<span class="st">"Odysseus"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(position)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text[position <span class="op">-</span> <span class="dv">150</span> : position <span class="op">+</span> <span class="dv">150</span>])</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Ulysseus"</span> <span class="kw">in</span> text) </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text.count(<span class="st">"Ulysseus"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5647
+of,
+declare thou even unto us.
+
+    Now all the rest, as many as fled from sheer destruction, were at
+    home, and had escaped both war and sea, but Odysseus only, craving
+    for his wife and for his homeward path, the lady nymph Calypso
+    held, that fair goddess, in her hollow caves, longing to
+False
+0</code></pre>
+</div>
+</div>
+<ol start="22" type="1">
 <li>Build a dictionary called <code>character_counts</code> that maps each of these names to how many times it appears in <code>text</code>, using the string method <code>.count()</code>: <code>"Ulysses"</code>, <code>"Penelope"</code> (his wife), <code>"Telemachus"</code> (his son), and <code>"Minerva"</code> (the goddess who helps him — also a Roman name, standing in for the Greek Athena).</li>
+</ol>
+<div id="62997852" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>character_counts <span class="op">=</span> {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ulysseus"</span>: text.count(<span class="st">"Ulysseus"</span>),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Penelope"</span>: text.count(<span class="st">"Penelope"</span>),</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Telemachus"</span>: text.count(<span class="st">"Telemachus"</span>),</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Minerva"</span>: text.count(<span class="st">"Minerva"</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="23" type="1">
 <li>Print <code>character_counts</code>.</li>
+</ol>
+<div id="84ce689e" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(character_counts) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'Ulysseus': 0, 'Penelope': 111, 'Telemachus': 272, 'Minerva': 152}</code></pre>
+</div>
+</div>
+<ol start="24" type="1">
 <li>Using dictionary indexing (not just eyeballing the printed output), confirm which of the four names appears most often.</li>
+</ol>
+<div id="9b7ed658" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(character_counts[<span class="st">"Telemachus"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>272</code></pre>
+</div>
+</div>
+<ol start="25" type="1">
 <li>Add one more key of your choice to <code>character_counts</code> — any word, name, or place you’re curious about — using its <code>.count()</code> in <code>text</code>.</li>
 </ol>
+<div id="aa7d2a09" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>character_counts[<span class="st">"Calypso"</span>] <span class="op">=</span> text.count(<span class="st">"Calypso"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(character_counts) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'Ulysseus': 0, 'Penelope': 111, 'Telemachus': 272, 'Minerva': 152, 'Calypso': 35}</code></pre>
+</div>
+</div>
 <hr>
 </section>
 </section>
@@ -334,6 +417,7 @@ True
 <li>The file you downloaded still has Project Gutenberg’s own license text mixed into the start and end, which you never removed. Given the poem itself is well over 100,000 words, do you think that leftover boilerplate meaningfully changed your token/type counts? Why or why not?</li>
 <li>Of the three structures — list, dict, set — which felt most natural for the character-counting task, and why?</li>
 </ul>
+<p>Working with the full text suprised me because it was a lot longer than the lists we used in class. The Project Gutenberg text probably changed the ocunts a little, but not much because the poem has over 100,000 words. Python made it much easier to work with all the words. I think a dictionary worked best for counting characters because it puts each name wiht its number. this made it easy to see which name showed up the most.</p>
 <hr>
 </section>
 <section id="submission" class="level2">
@@ -916,247 +1000,290 @@ True
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "HW 3 — From Variables to Sets"</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "LIN 301: Computation for Linguists"</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Dr. Andrew M. Byrd"</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 2</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="an">fontsize:</span><span class="co"> 12pt</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>This assignment covers everything from the last two weeks: variables and value types (numbers, strings, booleans), and the first two data structures we use constantly in this course, lists and dictionaries, plus the newest one, sets. Part 1 works with small, hand-built examples, the same way we did in class. Part 2 turns you loose on a full novel-length text you download yourself — a different text than anything we used in class, so you're practicing the skills rather than replaying what you already typed.</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>By the end, you should be able to:</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Create and use variables holding numbers, strings, and booleans, and predict what <span class="in">`type()`</span> will report for each.</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Build, index, slice, and search a list.</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Build, look up, add to, and search a dictionary.</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Turn a list into a set to answer "how many *different* things are here?", and explain why that's a different question from "how many things are here?"</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Apply all of the above to a real downloaded text, not just a short hand-typed example.</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>You will create **one** Quarto document named <span class="in">`hw3_python_basics_lastname_firstname.qmd`</span>, living inside a folder called <span class="in">`hw3`</span> in your <span class="in">`homework/`</span> folder. Grab the assignment file from the link on the Canvas assignment page, save it into that new <span class="in">`hw3`</span> folder, and rename it as you go.</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>Unlike HW1 and HW2, this homework's code is meant to actually **run** — write and run real code chunks in your <span class="in">`.qmd`</span>, and make sure your document renders cleanly to HTML before you submit.</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### A New Trick: Running Code in a `.qmd`</span></span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>Every code block we've read together in class, and everything you wrote for HW1 and HW2, was just *documentation* — Quarto never actually executed it. This assignment is different: your code needs to actually run and produce real output.</span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>To make a code chunk **executable**, fence it with <span class="in">`{python}`</span> instead of plain <span class="in">`python`</span>:</span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="in">````` markdown</span></span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this runs"</span>)</span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a><span class="in">`````</span></span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>A chunk written as `<span class="in">``` ```</span>python ```` (no curly braces) is still just syntax-highlighted text — Quarto skips right over it without running it. Every code chunk you write for this assignment needs the curly-brace version.</span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>To actually run your document, use **Render** — the Render button at the top of the editor, or `Ctrl+Shift+K` (`Cmd+Shift+K` on a Mac). This runs every `{python}` chunk top to bottom and rebuilds the `.html` file, showing each chunk's real output alongside your code. Render often as you go, not just once at the end — it's the fastest way to catch a typo before it piles up. If your editor shows a small ▷ **Run Cell** link above an individual chunk, that's a quicker way to test one chunk at a time without re-rendering the whole document.</span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 1 — Numbers, Strings, and Booleans</span></span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>A few facts to work with: Homer's *Odyssey* is 24 books long. The Trojan War lasted 10 years, and it took Odysseus another 10 years after that to make it home to Ithaca.</span>
-<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Numbers</span></span>
-<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Create three variables: <span class="in">`books = 24`</span>, <span class="in">`war_years = 10`</span>, and <span class="in">`journey_years = 10`</span>.</span>
-<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Create a variable <span class="in">`total_years_away`</span> using <span class="in">`war_years`</span> and <span class="in">`journey_years`</span>, and print it.</span>
-<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Suppose you wanted to read all 24 books at a steady pace over 7 weeks. Create <span class="in">`books_per_week`</span> using floor division (<span class="in">`//`</span>), and <span class="in">`leftover_books`</span> using modulus (<span class="in">`%`</span>). Print both — what do they tell you about your reading plan?</span>
-<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Print the <span class="in">`type()`</span> of <span class="in">`books`</span>, <span class="in">`total_years_away`</span>, and <span class="in">`books_per_week`</span>. Are any of them different from what you expected?</span>
-<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>books <span class="op">=</span> <span class="dv">24</span> </span>
-<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>war_years <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>journey_years <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>total_years_away <span class="op">=</span> war_years <span class="op">+</span> journey_years</span>
-<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total_years_away)</span>
-<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a>books_per_week <span class="op">=</span> books <span class="op">//</span> <span class="dv">7</span> </span>
-<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>leftover_books <span class="op">=</span> books <span class="op">%</span> <span class="dv">7</span> </span>
-<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(books_per_week)</span>
-<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(leftover_books)</span>
-<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(books))</span>
-<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(total_years_away))</span>
-<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(books_per_week))</span>
-<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>All three variables are integers, which is what I expected because the calculations use whole numbers and floor division. </span>
-<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### Strings</span></span>
-<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Create two variables: <span class="in">`hero = "Odysseus"`</span> and <span class="in">`epithet`</span> set to a short phrase describing him (your own words are fine — e.g. "man of many wiles").</span>
-<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Concatenate <span class="in">`hero`</span> and <span class="in">`epithet`</span> with <span class="in">`+`</span> (remember the space won't appear on its own). Then print <span class="in">`hero`</span> and <span class="in">`epithet`</span> the other way, with <span class="in">`print(hero, epithet)`</span>. What's different about the two outputs?</span>
-<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>Homer is sometimes translated as calling him "the man of twists and turns." Assign that **exact sentence, including the quotation marks,** to a variable called <span class="in">`homer_quote`</span>. You'll need to either escape the internal quotes with <span class="in">`\"`</span> or use a different quote character to wrap the string — your call, just make it run without a <span class="in">`SyntaxError`</span>.</span>
-<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a>hero <span class="op">=</span> <span class="st">"Odysseus"</span> </span>
-<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a>epithet <span class="op">=</span> <span class="st">"man of many wiles"</span> </span>
-<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a>hero_description <span class="op">=</span> hero <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> epithet </span>
-<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hero_description) </span>
-<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hero, epithet) </span>
-<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a>homer_quote <span class="op">=</span> <span class="st">'Homer is sometimes translated as calling him "the man of twists and turns."'</span></span>
-<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(homer_quote) </span>
-<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a>Concatenation creates one new string, while print(hero, epithet) prints the two seperate strings with a space between them. </span>
-<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### Booleans</span></span>
-<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>Check whether <span class="in">`war_years`</span> and <span class="in">`journey_years`</span> are equal, using <span class="in">`==`</span>. Store the result in a variable called <span class="in">`years_match`</span> and print it.</span>
-<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a><span class="ss">9.  </span>Create a variable <span class="in">`book_number`</span> and assign it any integer from 1 to 24.</span>
-<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Create two more variables: <span class="in">`is_first_book`</span> (<span class="in">`True`</span> if <span class="in">`book_number`</span> is 1) and <span class="in">`is_last_book`</span> (<span class="in">`True`</span> if <span class="in">`book_number`</span> is 24).</span>
-<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>Create <span class="in">`is_bookend`</span>, combining the two above with <span class="in">`or`</span> — <span class="in">`True`</span> if your chosen book is either the first or the last. Print <span class="in">`book_number`</span> and <span class="in">`is_bookend`</span> together in one <span class="in">`print()`</span> call.</span>
-<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a>years_match <span class="op">=</span> war_years <span class="op">==</span> journey_years </span>
-<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(years_match) </span>
-<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-114"><a href="#cb14-114" aria-hidden="true" tabindex="-1"></a>book_number <span class="op">=</span> <span class="dv">15</span> </span>
-<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a>is_first_book <span class="op">=</span> book_number <span class="op">==</span> <span class="dv">1</span> </span>
-<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a>is_last_book <span class="op">=</span> book_number <span class="op">==</span> <span class="dv">24</span></span>
-<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a>is_bookend <span class="op">=</span> is_first_book <span class="kw">or</span> is_last_book</span>
-<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(book_number, is_bookend) </span>
-<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a><span class="fu">### Book Profile</span></span>
-<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a><span class="ss">12. </span>Pick a book number from 1–24. Create three variables: <span class="in">`book_number`</span> (an int), <span class="in">`my_guess`</span> (a string — your own one-sentence guess about what might happen in that book; it doesn't need to be accurate), and <span class="in">`is_double_digit`</span> (a boolean — whether <span class="in">`book_number`</span> is 10 or greater).</span>
-<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a><span class="ss">13. </span>Print all three variables, then print the <span class="in">`type()`</span> of each one.</span>
-<span id="cb14-130"><a href="#cb14-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb14-131"><a href="#cb14-131" aria-hidden="true" tabindex="-1"></a>book_number <span class="op">=</span> <span class="dv">15</span> </span>
-<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a>my_guess <span class="op">=</span> <span class="st">"Odysseus faces another challenge on his journey home."</span> </span>
-<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a>is_double_digit <span class="op">=</span> book_number <span class="op">&gt;=</span> <span class="dv">10</span> </span>
-<span id="cb14-134"><a href="#cb14-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-135"><a href="#cb14-135" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(book_number) </span>
-<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_guess) </span>
-<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_double_digit) </span>
-<span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(book_number))</span>
-<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(my_guess))</span>
-<span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(is_double_digit))</span>
-<span id="cb14-142"><a href="#cb14-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-143"><a href="#cb14-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-144"><a href="#cb14-144" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb14-145"><a href="#cb14-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-146"><a href="#cb14-146" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 2 — Lists, Dictionaries, and Sets: Cataloguing the *Odyssey*</span></span>
-<span id="cb14-147"><a href="#cb14-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-148"><a href="#cb14-148" aria-hidden="true" tabindex="-1"></a><span class="fu">### Setup</span></span>
-<span id="cb14-149"><a href="#cb14-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-150"><a href="#cb14-150" aria-hidden="true" tabindex="-1"></a>In the Terminal, download Samuel Butler's 1900 prose translation of the *Odyssey* from Project Gutenberg, saving it as <span class="in">`odyssey.txt`</span>:</span>
-<span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
-<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-o</span> odyssey.txt https://www.gutenberg.org/cache/epub/1727/pg1727.txt</span>
-<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a>Then, in a Python code chunk in your <span class="in">`.qmd`</span>, load it into a string:</span>
-<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"odyssey.txt"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
-<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> f.read()</span>
-<span id="cb14-163"><a href="#cb14-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-164"><a href="#cb14-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a>**New trick:** <span class="in">`.split()`</span>, called on a string with no arguments, breaks it into a list of words, splitting wherever there's whitespace (spaces, tabs, line breaks):</span>
-<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> text.split()</span>
-<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-172"><a href="#cb14-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lists</span></span>
-<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-175"><a href="#cb14-175" aria-hidden="true" tabindex="-1"></a><span class="ss">14. </span>Print <span class="in">`len(words)`</span> — how many tokens are in the whole downloaded file?</span>
-<span id="cb14-176"><a href="#cb14-176" aria-hidden="true" tabindex="-1"></a><span class="ss">15. </span>Use slicing to print the first 20 words: <span class="in">`words[0:20]`</span>. Does this look like the actual poem, or something else?</span>
-<span id="cb14-177"><a href="#cb14-177" aria-hidden="true" tabindex="-1"></a><span class="ss">16. </span>Try a few different slices, further into the list, until you find one that clearly looks like real Homer rather than Project Gutenberg's own text. Record the slice (the indices) you used, and what it printed.</span>
-<span id="cb14-178"><a href="#cb14-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-179"><a href="#cb14-179" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sets</span></span>
-<span id="cb14-180"><a href="#cb14-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-181"><a href="#cb14-181" aria-hidden="true" tabindex="-1"></a><span class="ss">17. </span>Build <span class="in">`unique_words = set(words)`</span>. Print <span class="in">`len(unique_words)`</span>.</span>
-<span id="cb14-182"><a href="#cb14-182" aria-hidden="true" tabindex="-1"></a><span class="ss">18. </span>Compute the type-token ratio for the whole file: <span class="in">`len(unique_words) / len(words)`</span>.</span>
-<span id="cb14-183"><a href="#cb14-183" aria-hidden="true" tabindex="-1"></a><span class="ss">19. </span>On Day 14 in class, the two 23-word opening lines we analyzed had type-token ratios around 0.78 and 0.91. Compare those to the ratio you just got for the whole *Odyssey*. Is it higher or lower — and in 2–3 sentences, explain *why* you think that happens as a text gets longer.</span>
-<span id="cb14-184"><a href="#cb14-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-185"><a href="#cb14-185" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dictionaries</span></span>
-<span id="cb14-186"><a href="#cb14-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-187"><a href="#cb14-187" aria-hidden="true" tabindex="-1"></a>**New trick:** <span class="in">`.find()`</span> works like the list <span class="in">`.index()`</span> you already know from Day 12, but on a string — it returns the position where a match starts, or <span class="in">`-1`</span> if there isn't one.</span>
-<span id="cb14-188"><a href="#cb14-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-189"><a href="#cb14-189" aria-hidden="true" tabindex="-1"></a><span class="ss">20. </span>Try <span class="in">`text.count("Odysseus")`</span>. What do you get?</span>
-<span id="cb14-190"><a href="#cb14-190" aria-hidden="true" tabindex="-1"></a><span class="ss">21. </span>Whatever number you got, don't assume it means "Odysseus" is scattered evenly through the poem. Use <span class="in">`position = text.find("Odysseus")`</span> to find where one match starts, then slice out <span class="in">`text[position - 150 : position + 150]`</span> to read the sentence around it. Where does it actually turn up — in the middle of a book, or somewhere more limited, like the front matter? Once you've looked, use <span class="in">`"Ulysses" in text`</span> to check which name Butler's own narrative actually relies on, then find the count that works.</span>
-<span id="cb14-191"><a href="#cb14-191" aria-hidden="true" tabindex="-1"></a><span class="ss">22. </span>Build a dictionary called <span class="in">`character_counts`</span> that maps each of these names to how many times it appears in <span class="in">`text`</span>, using the string method <span class="in">`.count()`</span>: <span class="in">`"Ulysses"`</span>, <span class="in">`"Penelope"`</span> (his wife), <span class="in">`"Telemachus"`</span> (his son), and <span class="in">`"Minerva"`</span> (the goddess who helps him — also a Roman name, standing in for the Greek Athena).</span>
-<span id="cb14-192"><a href="#cb14-192" aria-hidden="true" tabindex="-1"></a><span class="ss">23. </span>Print <span class="in">`character_counts`</span>.</span>
-<span id="cb14-193"><a href="#cb14-193" aria-hidden="true" tabindex="-1"></a><span class="ss">24. </span>Using dictionary indexing (not just eyeballing the printed output), confirm which of the four names appears most often.</span>
-<span id="cb14-194"><a href="#cb14-194" aria-hidden="true" tabindex="-1"></a><span class="ss">25. </span>Add one more key of your choice to <span class="in">`character_counts`</span> — any word, name, or place you're curious about — using its <span class="in">`.count()`</span> in <span class="in">`text`</span>.</span>
-<span id="cb14-195"><a href="#cb14-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 3 — Reflection</span></span>
-<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a>At the bottom of your document, write a short (4–6 sentence) reflection:</span>
-<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What surprised you about working with a full downloaded text, compared to the short hand-typed lists we used in class?</span>
-<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The file you downloaded still has Project Gutenberg's own license text mixed into the start and end, which you never removed. Given the poem itself is well over 100,000 words, do you think that leftover boilerplate meaningfully changed your token/type counts? Why or why not?</span>
-<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Of the three structures — list, dict, set — which felt most natural for the character-counting task, and why?</span>
-<span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb14-207"><a href="#cb14-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-208"><a href="#cb14-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## Submission</span></span>
-<span id="cb14-209"><a href="#cb14-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-210"><a href="#cb14-210" aria-hidden="true" tabindex="-1"></a>Your <span class="in">`LIN_301`</span> repo is public, so instead of uploading a file to Canvas, you'll submit a **link** straight to your <span class="in">`homework/hw3`</span> folder on GitHub.</span>
-<span id="cb14-211"><a href="#cb14-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-212"><a href="#cb14-212" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Render your document.** Make sure your <span class="in">`.qmd`</span> renders cleanly to HTML — this homework's code actually runs, unlike HW1 and HW2.</span>
-<span id="cb14-213"><a href="#cb14-213" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Push everything.** Stage, commit, and push your entire <span class="in">`homework/hw3`</span> folder — your <span class="in">`.qmd`</span>, the rendered <span class="in">`.html`</span>, and <span class="in">`odyssey.txt`</span> — to your <span class="in">`LIN_301`</span> GitHub repo.</span>
-<span id="cb14-214"><a href="#cb14-214" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Get the folder's GitHub address.** On github.com, navigate into your repo to <span class="in">`homework/hw3`</span>, and copy the URL from your browser's address bar. It'll look like:</span>
-<span id="cb14-215"><a href="#cb14-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-216"><a href="#cb14-216" aria-hidden="true" tabindex="-1"></a>    <span class="in">```         </span></span>
-<span id="cb14-217"><a href="#cb14-217" aria-hidden="true" tabindex="-1"></a><span class="in">    https://github.com/your-username/LIN_301/tree/main/homework/hw3</span></span>
-<span id="cb14-218"><a href="#cb14-218" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
-<span id="cb14-219"><a href="#cb14-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-220"><a href="#cb14-220" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Submit that link on Canvas** — no file upload needed.</span>
-<span id="cb14-221"><a href="#cb14-221" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Be sure to replace "lastname_firstname" with your actual last name and first name in your <span class="in">`.qmd`</span> filename.</span>
-<span id="cb14-222"><a href="#cb14-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-223"><a href="#cb14-223" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb14-224"><a href="#cb14-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-225"><a href="#cb14-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## Grading Rubric (100 pts total)</span></span>
-<span id="cb14-226"><a href="#cb14-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-227"><a href="#cb14-227" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 1 — Numbers, Strings, Booleans (35 pts)</span></span>
-<span id="cb14-228"><a href="#cb14-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-229"><a href="#cb14-229" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criteria <span class="pp">|</span> Points <span class="pp">|</span></span>
-<span id="cb14-230"><a href="#cb14-230" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------------------|:-----------------------------:|</span></span>
-<span id="cb14-231"><a href="#cb14-231" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Numbers: variables, <span class="in">`total_years_away`</span>, floor division/modulus, <span class="in">`type()`</span> checks <span class="pp">|</span> 10 <span class="pp">|</span></span>
-<span id="cb14-232"><a href="#cb14-232" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Strings: concatenation, <span class="in">`print()`</span> with multiple arguments, escaped-quote string <span class="pp">|</span> 10 <span class="pp">|</span></span>
-<span id="cb14-233"><a href="#cb14-233" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Booleans: equality check, <span class="in">`and`</span>/<span class="in">`or`</span> logic, combined print statement <span class="pp">|</span> 10 <span class="pp">|</span></span>
-<span id="cb14-234"><a href="#cb14-234" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Book Profile activity: three variables of the correct types, printed with their <span class="in">`type()`</span> <span class="pp">|</span> 5 <span class="pp">|</span></span>
-<span id="cb14-235"><a href="#cb14-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-236"><a href="#cb14-236" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 2 — Lists, Dicts, Sets (50 pts)</span></span>
-<span id="cb14-237"><a href="#cb14-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-238"><a href="#cb14-238" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criteria <span class="pp">|</span> Points <span class="pp">|</span></span>
-<span id="cb14-239"><a href="#cb14-239" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------------------|:-----------------------------:|</span></span>
-<span id="cb14-240"><a href="#cb14-240" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> File downloaded and loaded correctly; <span class="in">`.split()`</span> used to build <span class="in">`words`</span> <span class="pp">|</span> 5 <span class="pp">|</span></span>
-<span id="cb14-241"><a href="#cb14-241" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> List: token count, slicing used to inspect and locate real text <span class="pp">|</span> 10 <span class="pp">|</span></span>
-<span id="cb14-242"><a href="#cb14-242" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Set: unique word count, type-token ratio computed and compared to class examples <span class="pp">|</span> 15 <span class="pp">|</span></span>
-<span id="cb14-243"><a href="#cb14-243" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dict: <span class="in">`character_counts`</span> built correctly with <span class="in">`.count()`</span>; most-frequent name correctly identified via indexing; new key added <span class="pp">|</span> 20 <span class="pp">|</span></span>
-<span id="cb14-244"><a href="#cb14-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-245"><a href="#cb14-245" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 3 — Reflection (10 pts)</span></span>
-<span id="cb14-246"><a href="#cb14-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-247"><a href="#cb14-247" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criteria <span class="pp">|</span> Points <span class="pp">|</span></span>
-<span id="cb14-248"><a href="#cb14-248" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------------------|:-----------------------------:|</span></span>
-<span id="cb14-249"><a href="#cb14-249" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Thoughtful, specific answers to all three reflection prompts <span class="pp">|</span> 10 <span class="pp">|</span></span>
-<span id="cb14-250"><a href="#cb14-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-251"><a href="#cb14-251" aria-hidden="true" tabindex="-1"></a><span class="fu">### Presentation &amp; Reproducibility (5 pts)</span></span>
-<span id="cb14-252"><a href="#cb14-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-253"><a href="#cb14-253" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criteria <span class="pp">|</span> Points <span class="pp">|</span></span>
-<span id="cb14-254"><a href="#cb14-254" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------------------|:-----------------------------:|</span></span>
-<span id="cb14-255"><a href="#cb14-255" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> File named correctly; document renders without errors; code and answers clearly organized by part; GitHub link points to the <span class="in">`hw3`</span> folder <span class="pp">|</span> 5 <span class="pp">|</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "HW 3 — From Variables to Sets"</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "LIN 301: Computation for Linguists"</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Dr. Andrew M. Byrd"</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 2</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> python3</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="an">fontsize:</span><span class="co"> 12pt</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>This assignment covers everything from the last two weeks: variables and value types (numbers, strings, booleans), and the first two data structures we use constantly in this course, lists and dictionaries, plus the newest one, sets. Part 1 works with small, hand-built examples, the same way we did in class. Part 2 turns you loose on a full novel-length text you download yourself — a different text than anything we used in class, so you're practicing the skills rather than replaying what you already typed.</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>By the end, you should be able to:</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Create and use variables holding numbers, strings, and booleans, and predict what <span class="in">`type()`</span> will report for each.</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Build, index, slice, and search a list.</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Build, look up, add to, and search a dictionary.</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Turn a list into a set to answer "how many *different* things are here?", and explain why that's a different question from "how many things are here?"</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Apply all of the above to a real downloaded text, not just a short hand-typed example.</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>You will create **one** Quarto document named <span class="in">`hw3_python_basics_lastname_firstname.qmd`</span>, living inside a folder called <span class="in">`hw3`</span> in your <span class="in">`homework/`</span> folder. Grab the assignment file from the link on the Canvas assignment page, save it into that new <span class="in">`hw3`</span> folder, and rename it as you go.</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>Unlike HW1 and HW2, this homework's code is meant to actually **run** — write and run real code chunks in your <span class="in">`.qmd`</span>, and make sure your document renders cleanly to HTML before you submit.</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### A New Trick: Running Code in a `.qmd`</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>Every code block we've read together in class, and everything you wrote for HW1 and HW2, was just *documentation* — Quarto never actually executed it. This assignment is different: your code needs to actually run and produce real output.</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>To make a code chunk **executable**, fence it with <span class="in">`{python}`</span> instead of plain <span class="in">`python`</span>:</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a><span class="in">````` markdown</span></span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this runs"</span>)</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a><span class="in">`````</span></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>A chunk written as `<span class="in">``` ```</span>python ```` (no curly braces) is still just syntax-highlighted text — Quarto skips right over it without running it. Every code chunk you write for this assignment needs the curly-brace version.</span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>To actually run your document, use **Render** — the Render button at the top of the editor, or `Ctrl+Shift+K` (`Cmd+Shift+K` on a Mac). This runs every `{python}` chunk top to bottom and rebuilds the `.html` file, showing each chunk's real output alongside your code. Render often as you go, not just once at the end — it's the fastest way to catch a typo before it piles up. If your editor shows a small ▷ **Run Cell** link above an individual chunk, that's a quicker way to test one chunk at a time without re-rendering the whole document.</span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 1 — Numbers, Strings, and Booleans</span></span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>A few facts to work with: Homer's *Odyssey* is 24 books long. The Trojan War lasted 10 years, and it took Odysseus another 10 years after that to make it home to Ithaca.</span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Numbers</span></span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Create three variables: <span class="in">`books = 24`</span>, <span class="in">`war_years = 10`</span>, and <span class="in">`journey_years = 10`</span>.</span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Create a variable <span class="in">`total_years_away`</span> using <span class="in">`war_years`</span> and <span class="in">`journey_years`</span>, and print it.</span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Suppose you wanted to read all 24 books at a steady pace over 7 weeks. Create <span class="in">`books_per_week`</span> using floor division (<span class="in">`//`</span>), and <span class="in">`leftover_books`</span> using modulus (<span class="in">`%`</span>). Print both — what do they tell you about your reading plan?</span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Print the <span class="in">`type()`</span> of <span class="in">`books`</span>, <span class="in">`total_years_away`</span>, and <span class="in">`books_per_week`</span>. Are any of them different from what you expected?</span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a>books <span class="op">=</span> <span class="dv">24</span> </span>
+<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a>war_years <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a>journey_years <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a>total_years_away <span class="op">=</span> war_years <span class="op">+</span> journey_years</span>
+<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total_years_away)</span>
+<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a>books_per_week <span class="op">=</span> books <span class="op">//</span> <span class="dv">7</span> </span>
+<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a>leftover_books <span class="op">=</span> books <span class="op">%</span> <span class="dv">7</span> </span>
+<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(books_per_week)</span>
+<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(leftover_books)</span>
+<span id="cb29-74"><a href="#cb29-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-75"><a href="#cb29-75" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(books))</span>
+<span id="cb29-76"><a href="#cb29-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(total_years_away))</span>
+<span id="cb29-77"><a href="#cb29-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(books_per_week))</span>
+<span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-79"><a href="#cb29-79" aria-hidden="true" tabindex="-1"></a>All three variables are integers, which is what I expected because the calculations use whole numbers and floor division. </span>
+<span id="cb29-80"><a href="#cb29-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-81"><a href="#cb29-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### Strings</span></span>
+<span id="cb29-82"><a href="#cb29-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-83"><a href="#cb29-83" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Create two variables: <span class="in">`hero = "Odysseus"`</span> and <span class="in">`epithet`</span> set to a short phrase describing him (your own words are fine — e.g. "man of many wiles").</span>
+<span id="cb29-84"><a href="#cb29-84" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Concatenate <span class="in">`hero`</span> and <span class="in">`epithet`</span> with <span class="in">`+`</span> (remember the space won't appear on its own). Then print <span class="in">`hero`</span> and <span class="in">`epithet`</span> the other way, with <span class="in">`print(hero, epithet)`</span>. What's different about the two outputs?</span>
+<span id="cb29-85"><a href="#cb29-85" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>Homer is sometimes translated as calling him "the man of twists and turns." Assign that **exact sentence, including the quotation marks,** to a variable called <span class="in">`homer_quote`</span>. You'll need to either escape the internal quotes with <span class="in">`\"`</span> or use a different quote character to wrap the string — your call, just make it run without a <span class="in">`SyntaxError`</span>.</span>
+<span id="cb29-88"><a href="#cb29-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-89"><a href="#cb29-89" aria-hidden="true" tabindex="-1"></a>hero <span class="op">=</span> <span class="st">"Odysseus"</span> </span>
+<span id="cb29-90"><a href="#cb29-90" aria-hidden="true" tabindex="-1"></a>epithet <span class="op">=</span> <span class="st">"man of many wiles"</span> </span>
+<span id="cb29-91"><a href="#cb29-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-92"><a href="#cb29-92" aria-hidden="true" tabindex="-1"></a>hero_description <span class="op">=</span> hero <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> epithet </span>
+<span id="cb29-93"><a href="#cb29-93" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hero_description) </span>
+<span id="cb29-94"><a href="#cb29-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-95"><a href="#cb29-95" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hero, epithet) </span>
+<span id="cb29-96"><a href="#cb29-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-97"><a href="#cb29-97" aria-hidden="true" tabindex="-1"></a>homer_quote <span class="op">=</span> <span class="st">'Homer is sometimes translated as calling him "the man of twists and turns."'</span></span>
+<span id="cb29-98"><a href="#cb29-98" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(homer_quote) </span>
+<span id="cb29-99"><a href="#cb29-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-100"><a href="#cb29-100" aria-hidden="true" tabindex="-1"></a>Concatenation creates one new string, while print(hero, epithet) prints the two seperate strings with a space between them. </span>
+<span id="cb29-101"><a href="#cb29-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-102"><a href="#cb29-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### Booleans</span></span>
+<span id="cb29-103"><a href="#cb29-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-104"><a href="#cb29-104" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>Check whether <span class="in">`war_years`</span> and <span class="in">`journey_years`</span> are equal, using <span class="in">`==`</span>. Store the result in a variable called <span class="in">`years_match`</span> and print it.</span>
+<span id="cb29-105"><a href="#cb29-105" aria-hidden="true" tabindex="-1"></a><span class="ss">9.  </span>Create a variable <span class="in">`book_number`</span> and assign it any integer from 1 to 24.</span>
+<span id="cb29-106"><a href="#cb29-106" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>Create two more variables: <span class="in">`is_first_book`</span> (<span class="in">`True`</span> if <span class="in">`book_number`</span> is 1) and <span class="in">`is_last_book`</span> (<span class="in">`True`</span> if <span class="in">`book_number`</span> is 24).</span>
+<span id="cb29-107"><a href="#cb29-107" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>Create <span class="in">`is_bookend`</span>, combining the two above with <span class="in">`or`</span> — <span class="in">`True`</span> if your chosen book is either the first or the last. Print <span class="in">`book_number`</span> and <span class="in">`is_bookend`</span> together in one <span class="in">`print()`</span> call.</span>
+<span id="cb29-110"><a href="#cb29-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-111"><a href="#cb29-111" aria-hidden="true" tabindex="-1"></a>years_match <span class="op">=</span> war_years <span class="op">==</span> journey_years </span>
+<span id="cb29-112"><a href="#cb29-112" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(years_match) </span>
+<span id="cb29-113"><a href="#cb29-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-114"><a href="#cb29-114" aria-hidden="true" tabindex="-1"></a>book_number <span class="op">=</span> <span class="dv">15</span> </span>
+<span id="cb29-115"><a href="#cb29-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-116"><a href="#cb29-116" aria-hidden="true" tabindex="-1"></a>is_first_book <span class="op">=</span> book_number <span class="op">==</span> <span class="dv">1</span> </span>
+<span id="cb29-117"><a href="#cb29-117" aria-hidden="true" tabindex="-1"></a>is_last_book <span class="op">=</span> book_number <span class="op">==</span> <span class="dv">24</span></span>
+<span id="cb29-118"><a href="#cb29-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-119"><a href="#cb29-119" aria-hidden="true" tabindex="-1"></a>is_bookend <span class="op">=</span> is_first_book <span class="kw">or</span> is_last_book</span>
+<span id="cb29-120"><a href="#cb29-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-121"><a href="#cb29-121" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(book_number, is_bookend) </span>
+<span id="cb29-122"><a href="#cb29-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-123"><a href="#cb29-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-124"><a href="#cb29-124" aria-hidden="true" tabindex="-1"></a><span class="fu">### Book Profile</span></span>
+<span id="cb29-125"><a href="#cb29-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-126"><a href="#cb29-126" aria-hidden="true" tabindex="-1"></a><span class="ss">12. </span>Pick a book number from 1–24. Create three variables: <span class="in">`book_number`</span> (an int), <span class="in">`my_guess`</span> (a string — your own one-sentence guess about what might happen in that book; it doesn't need to be accurate), and <span class="in">`is_double_digit`</span> (a boolean — whether <span class="in">`book_number`</span> is 10 or greater).</span>
+<span id="cb29-127"><a href="#cb29-127" aria-hidden="true" tabindex="-1"></a><span class="ss">13. </span>Print all three variables, then print the <span class="in">`type()`</span> of each one.</span>
+<span id="cb29-130"><a href="#cb29-130" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-131"><a href="#cb29-131" aria-hidden="true" tabindex="-1"></a>book_number <span class="op">=</span> <span class="dv">15</span> </span>
+<span id="cb29-132"><a href="#cb29-132" aria-hidden="true" tabindex="-1"></a>my_guess <span class="op">=</span> <span class="st">"Odysseus faces another challenge on his journey home."</span> </span>
+<span id="cb29-133"><a href="#cb29-133" aria-hidden="true" tabindex="-1"></a>is_double_digit <span class="op">=</span> book_number <span class="op">&gt;=</span> <span class="dv">10</span> </span>
+<span id="cb29-134"><a href="#cb29-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-135"><a href="#cb29-135" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(book_number) </span>
+<span id="cb29-136"><a href="#cb29-136" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_guess) </span>
+<span id="cb29-137"><a href="#cb29-137" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_double_digit) </span>
+<span id="cb29-138"><a href="#cb29-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-139"><a href="#cb29-139" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(book_number))</span>
+<span id="cb29-140"><a href="#cb29-140" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(my_guess))</span>
+<span id="cb29-141"><a href="#cb29-141" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(is_double_digit))</span>
+<span id="cb29-142"><a href="#cb29-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-143"><a href="#cb29-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-144"><a href="#cb29-144" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb29-145"><a href="#cb29-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-146"><a href="#cb29-146" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 2 — Lists, Dictionaries, and Sets: Cataloguing the *Odyssey*</span></span>
+<span id="cb29-147"><a href="#cb29-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-148"><a href="#cb29-148" aria-hidden="true" tabindex="-1"></a><span class="fu">### Setup</span></span>
+<span id="cb29-149"><a href="#cb29-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-150"><a href="#cb29-150" aria-hidden="true" tabindex="-1"></a>In the Terminal, download Samuel Butler's 1900 prose translation of the *Odyssey* from Project Gutenberg, saving it as <span class="in">`odyssey.txt`</span>:</span>
+<span id="cb29-151"><a href="#cb29-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-152"><a href="#cb29-152" aria-hidden="true" tabindex="-1"></a><span class="in">``` bash</span></span>
+<span id="cb29-153"><a href="#cb29-153" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-o</span> odyssey.txt https://www.gutenberg.org/cache/epub/1727/pg1727.txt</span>
+<span id="cb29-154"><a href="#cb29-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-155"><a href="#cb29-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-156"><a href="#cb29-156" aria-hidden="true" tabindex="-1"></a>Then, in a Python code chunk in your <span class="in">`.qmd`</span>, load it into a string:</span>
+<span id="cb29-157"><a href="#cb29-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-160"><a href="#cb29-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-161"><a href="#cb29-161" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"odyssey.txt"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> f:</span>
+<span id="cb29-162"><a href="#cb29-162" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> f.read()</span>
+<span id="cb29-163"><a href="#cb29-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-164"><a href="#cb29-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-165"><a href="#cb29-165" aria-hidden="true" tabindex="-1"></a>**New trick:** <span class="in">`.split()`</span>, called on a string with no arguments, breaks it into a list of words, splitting wherever there's whitespace (spaces, tabs, line breaks):</span>
+<span id="cb29-166"><a href="#cb29-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-169"><a href="#cb29-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-170"><a href="#cb29-170" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> text.split()</span>
+<span id="cb29-171"><a href="#cb29-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-172"><a href="#cb29-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-173"><a href="#cb29-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lists</span></span>
+<span id="cb29-174"><a href="#cb29-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-175"><a href="#cb29-175" aria-hidden="true" tabindex="-1"></a><span class="ss">14. </span>Print <span class="in">`len(words)`</span> — how many tokens are in the whole downloaded file?</span>
+<span id="cb29-176"><a href="#cb29-176" aria-hidden="true" tabindex="-1"></a><span class="ss">15. </span>Use slicing to print the first 20 words: <span class="in">`words[0:20]`</span>. Does this look like the actual poem, or something else?</span>
+<span id="cb29-177"><a href="#cb29-177" aria-hidden="true" tabindex="-1"></a><span class="ss">16. </span>Try a few different slices, further into the list, until you find one that clearly looks like real Homer rather than Project Gutenberg's own text. Record the slice (the indices) you used, and what it printed.</span>
+<span id="cb29-180"><a href="#cb29-180" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-181"><a href="#cb29-181" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(words))</span>
+<span id="cb29-182"><a href="#cb29-182" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(words[<span class="dv">0</span>:<span class="dv">20</span>])</span>
+<span id="cb29-183"><a href="#cb29-183" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(words[<span class="dv">5000</span>:<span class="dv">5020</span>])</span>
+<span id="cb29-184"><a href="#cb29-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-185"><a href="#cb29-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-186"><a href="#cb29-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sets</span></span>
+<span id="cb29-187"><a href="#cb29-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-188"><a href="#cb29-188" aria-hidden="true" tabindex="-1"></a><span class="ss">17. </span>Build <span class="in">`unique_words = set(words)`</span>. Print <span class="in">`len(unique_words)`</span>.</span>
+<span id="cb29-189"><a href="#cb29-189" aria-hidden="true" tabindex="-1"></a><span class="ss">18. </span>Compute the type-token ratio for the whole file: <span class="in">`len(unique_words) / len(words)`</span>.</span>
+<span id="cb29-190"><a href="#cb29-190" aria-hidden="true" tabindex="-1"></a><span class="ss">19. </span>On Day 14 in class, the two 23-word opening lines we analyzed had type-token ratios around 0.78 and 0.91. Compare those to the ratio you just got for the whole *Odyssey*. Is it higher or lower — and in 2–3 sentences, explain *why* you think that happens as a text gets longer.</span>
+<span id="cb29-193"><a href="#cb29-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-194"><a href="#cb29-194" aria-hidden="true" tabindex="-1"></a>unique_words <span class="op">=</span> <span class="bu">set</span>(words)</span>
+<span id="cb29-195"><a href="#cb29-195" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(unique_words))</span>
+<span id="cb29-196"><a href="#cb29-196" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(unique_words) <span class="op">/</span> <span class="bu">len</span>(words))</span>
+<span id="cb29-197"><a href="#cb29-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-198"><a href="#cb29-198" aria-hidden="true" tabindex="-1"></a>The type token ratio for the whoel Odyssey is about 0.107, which is much lower than the ratios of 0.78 and 0.91 from the short passages. As a text gets longer, words are repeated more often, so the number og the total words grows much faster than the number of unique words. </span>
+<span id="cb29-199"><a href="#cb29-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-200"><a href="#cb29-200" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dictionaries</span></span>
+<span id="cb29-201"><a href="#cb29-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-202"><a href="#cb29-202" aria-hidden="true" tabindex="-1"></a>**New trick:** <span class="in">`.find()`</span> works like the list <span class="in">`.index()`</span> you already know from Day 12, but on a string — it returns the position where a match starts, or <span class="in">`-1`</span> if there isn't one.</span>
+<span id="cb29-203"><a href="#cb29-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-204"><a href="#cb29-204" aria-hidden="true" tabindex="-1"></a><span class="ss">20. </span>Try <span class="in">`text.count("Odysseus")`</span>. What do you get?</span>
+<span id="cb29-207"><a href="#cb29-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-208"><a href="#cb29-208" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text.count(<span class="st">"Odysseus"</span>))</span>
+<span id="cb29-209"><a href="#cb29-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-210"><a href="#cb29-210" aria-hidden="true" tabindex="-1"></a><span class="ss">21. </span>Whatever number you got, don't assume it means "Odysseus" is scattered evenly through the poem. Use <span class="in">`position = text.find("Odysseus")`</span> to find where one match starts, then slice out <span class="in">`text[position - 150 : position + 150]`</span> to read the sentence around it. Where does it actually turn up — in the middle of a book, or somewhere more limited, like the front matter? Once you've looked, use <span class="in">`"Ulysses" in text`</span> to check which name Butler's own narrative actually relies on, then find the count that works.</span>
+<span id="cb29-213"><a href="#cb29-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-214"><a href="#cb29-214" aria-hidden="true" tabindex="-1"></a>position <span class="op">=</span> text.find(<span class="st">"Odysseus"</span>)</span>
+<span id="cb29-215"><a href="#cb29-215" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(position)</span>
+<span id="cb29-216"><a href="#cb29-216" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text[position <span class="op">-</span> <span class="dv">150</span> : position <span class="op">+</span> <span class="dv">150</span>])</span>
+<span id="cb29-217"><a href="#cb29-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-218"><a href="#cb29-218" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Ulysseus"</span> <span class="kw">in</span> text) </span>
+<span id="cb29-219"><a href="#cb29-219" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(text.count(<span class="st">"Ulysseus"</span>)) </span>
+<span id="cb29-220"><a href="#cb29-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-221"><a href="#cb29-221" aria-hidden="true" tabindex="-1"></a><span class="ss">22. </span>Build a dictionary called <span class="in">`character_counts`</span> that maps each of these names to how many times it appears in <span class="in">`text`</span>, using the string method <span class="in">`.count()`</span>: <span class="in">`"Ulysses"`</span>, <span class="in">`"Penelope"`</span> (his wife), <span class="in">`"Telemachus"`</span> (his son), and <span class="in">`"Minerva"`</span> (the goddess who helps him — also a Roman name, standing in for the Greek Athena).</span>
+<span id="cb29-224"><a href="#cb29-224" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-225"><a href="#cb29-225" aria-hidden="true" tabindex="-1"></a>character_counts <span class="op">=</span> {</span>
+<span id="cb29-226"><a href="#cb29-226" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ulysseus"</span>: text.count(<span class="st">"Ulysseus"</span>),</span>
+<span id="cb29-227"><a href="#cb29-227" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Penelope"</span>: text.count(<span class="st">"Penelope"</span>),</span>
+<span id="cb29-228"><a href="#cb29-228" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Telemachus"</span>: text.count(<span class="st">"Telemachus"</span>),</span>
+<span id="cb29-229"><a href="#cb29-229" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Minerva"</span>: text.count(<span class="st">"Minerva"</span>)</span>
+<span id="cb29-230"><a href="#cb29-230" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-231"><a href="#cb29-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-232"><a href="#cb29-232" aria-hidden="true" tabindex="-1"></a><span class="ss">23. </span>Print <span class="in">`character_counts`</span>.</span>
+<span id="cb29-235"><a href="#cb29-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-236"><a href="#cb29-236" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(character_counts) </span>
+<span id="cb29-237"><a href="#cb29-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-238"><a href="#cb29-238" aria-hidden="true" tabindex="-1"></a><span class="ss">24. </span>Using dictionary indexing (not just eyeballing the printed output), confirm which of the four names appears most often.</span>
+<span id="cb29-241"><a href="#cb29-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-242"><a href="#cb29-242" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(character_counts[<span class="st">"Telemachus"</span>])</span>
+<span id="cb29-243"><a href="#cb29-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-244"><a href="#cb29-244" aria-hidden="true" tabindex="-1"></a><span class="ss">25. </span>Add one more key of your choice to <span class="in">`character_counts`</span> — any word, name, or place you're curious about — using its <span class="in">`.count()`</span> in <span class="in">`text`</span>.</span>
+<span id="cb29-247"><a href="#cb29-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb29-248"><a href="#cb29-248" aria-hidden="true" tabindex="-1"></a>character_counts[<span class="st">"Calypso"</span>] <span class="op">=</span> text.count(<span class="st">"Calypso"</span>)</span>
+<span id="cb29-249"><a href="#cb29-249" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(character_counts) </span>
+<span id="cb29-250"><a href="#cb29-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb29-251"><a href="#cb29-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-252"><a href="#cb29-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-253"><a href="#cb29-253" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb29-254"><a href="#cb29-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-255"><a href="#cb29-255" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 3 — Reflection</span></span>
+<span id="cb29-256"><a href="#cb29-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-257"><a href="#cb29-257" aria-hidden="true" tabindex="-1"></a>At the bottom of your document, write a short (4–6 sentence) reflection:</span>
+<span id="cb29-258"><a href="#cb29-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-259"><a href="#cb29-259" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>What surprised you about working with a full downloaded text, compared to the short hand-typed lists we used in class?</span>
+<span id="cb29-260"><a href="#cb29-260" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The file you downloaded still has Project Gutenberg's own license text mixed into the start and end, which you never removed. Given the poem itself is well over 100,000 words, do you think that leftover boilerplate meaningfully changed your token/type counts? Why or why not?</span>
+<span id="cb29-261"><a href="#cb29-261" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Of the three structures — list, dict, set — which felt most natural for the character-counting task, and why?</span>
+<span id="cb29-262"><a href="#cb29-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-263"><a href="#cb29-263" aria-hidden="true" tabindex="-1"></a>Working with the full text suprised me because it was a lot longer than the lists we used in class. The Project Gutenberg text probably changed the ocunts a little, but not much because the poem has over 100,000 words. Python made it much easier to work with all the words. I think a dictionary worked best for counting characters because it puts each name wiht its number. this made it easy to see which name showed up the most. </span>
+<span id="cb29-264"><a href="#cb29-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-265"><a href="#cb29-265" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb29-266"><a href="#cb29-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-267"><a href="#cb29-267" aria-hidden="true" tabindex="-1"></a><span class="fu">## Submission</span></span>
+<span id="cb29-268"><a href="#cb29-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-269"><a href="#cb29-269" aria-hidden="true" tabindex="-1"></a>Your <span class="in">`LIN_301`</span> repo is public, so instead of uploading a file to Canvas, you'll submit a **link** straight to your <span class="in">`homework/hw3`</span> folder on GitHub.</span>
+<span id="cb29-270"><a href="#cb29-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-271"><a href="#cb29-271" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Render your document.** Make sure your <span class="in">`.qmd`</span> renders cleanly to HTML — this homework's code actually runs, unlike HW1 and HW2.</span>
+<span id="cb29-272"><a href="#cb29-272" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Push everything.** Stage, commit, and push your entire <span class="in">`homework/hw3`</span> folder — your <span class="in">`.qmd`</span>, the rendered <span class="in">`.html`</span>, and <span class="in">`odyssey.txt`</span> — to your <span class="in">`LIN_301`</span> GitHub repo.</span>
+<span id="cb29-273"><a href="#cb29-273" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Get the folder's GitHub address.** On github.com, navigate into your repo to <span class="in">`homework/hw3`</span>, and copy the URL from your browser's address bar. It'll look like:</span>
+<span id="cb29-274"><a href="#cb29-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-275"><a href="#cb29-275" aria-hidden="true" tabindex="-1"></a>    <span class="in">```         </span></span>
+<span id="cb29-276"><a href="#cb29-276" aria-hidden="true" tabindex="-1"></a><span class="in">    https://github.com/your-username/LIN_301/tree/main/homework/hw3</span></span>
+<span id="cb29-277"><a href="#cb29-277" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb29-278"><a href="#cb29-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-279"><a href="#cb29-279" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Submit that link on Canvas** — no file upload needed.</span>
+<span id="cb29-280"><a href="#cb29-280" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Be sure to replace "lastname_firstname" with your actual last name and first name in your <span class="in">`.qmd`</span> filename.</span>
+<span id="cb29-281"><a href="#cb29-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-282"><a href="#cb29-282" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb29-283"><a href="#cb29-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-284"><a href="#cb29-284" aria-hidden="true" tabindex="-1"></a><span class="fu">## Grading Rubric (100 pts total)</span></span>
+<span id="cb29-285"><a href="#cb29-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-286"><a href="#cb29-286" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 1 — Numbers, Strings, Booleans (35 pts)</span></span>
+<span id="cb29-287"><a href="#cb29-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-288"><a href="#cb29-288" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criteria <span class="pp">|</span> Points <span class="pp">|</span></span>
+<span id="cb29-289"><a href="#cb29-289" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------------------|:-----------------------------:|</span></span>
+<span id="cb29-290"><a href="#cb29-290" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Numbers: variables, <span class="in">`total_years_away`</span>, floor division/modulus, <span class="in">`type()`</span> checks <span class="pp">|</span> 10 <span class="pp">|</span></span>
+<span id="cb29-291"><a href="#cb29-291" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Strings: concatenation, <span class="in">`print()`</span> with multiple arguments, escaped-quote string <span class="pp">|</span> 10 <span class="pp">|</span></span>
+<span id="cb29-292"><a href="#cb29-292" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Booleans: equality check, <span class="in">`and`</span>/<span class="in">`or`</span> logic, combined print statement <span class="pp">|</span> 10 <span class="pp">|</span></span>
+<span id="cb29-293"><a href="#cb29-293" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Book Profile activity: three variables of the correct types, printed with their <span class="in">`type()`</span> <span class="pp">|</span> 5 <span class="pp">|</span></span>
+<span id="cb29-294"><a href="#cb29-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-295"><a href="#cb29-295" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 2 — Lists, Dicts, Sets (50 pts)</span></span>
+<span id="cb29-296"><a href="#cb29-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-297"><a href="#cb29-297" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criteria <span class="pp">|</span> Points <span class="pp">|</span></span>
+<span id="cb29-298"><a href="#cb29-298" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------------------|:-----------------------------:|</span></span>
+<span id="cb29-299"><a href="#cb29-299" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> File downloaded and loaded correctly; <span class="in">`.split()`</span> used to build <span class="in">`words`</span> <span class="pp">|</span> 5 <span class="pp">|</span></span>
+<span id="cb29-300"><a href="#cb29-300" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> List: token count, slicing used to inspect and locate real text <span class="pp">|</span> 10 <span class="pp">|</span></span>
+<span id="cb29-301"><a href="#cb29-301" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Set: unique word count, type-token ratio computed and compared to class examples <span class="pp">|</span> 15 <span class="pp">|</span></span>
+<span id="cb29-302"><a href="#cb29-302" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dict: <span class="in">`character_counts`</span> built correctly with <span class="in">`.count()`</span>; most-frequent name correctly identified via indexing; new key added <span class="pp">|</span> 20 <span class="pp">|</span></span>
+<span id="cb29-303"><a href="#cb29-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-304"><a href="#cb29-304" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 3 — Reflection (10 pts)</span></span>
+<span id="cb29-305"><a href="#cb29-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-306"><a href="#cb29-306" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criteria <span class="pp">|</span> Points <span class="pp">|</span></span>
+<span id="cb29-307"><a href="#cb29-307" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------------------|:-----------------------------:|</span></span>
+<span id="cb29-308"><a href="#cb29-308" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Thoughtful, specific answers to all three reflection prompts <span class="pp">|</span> 10 <span class="pp">|</span></span>
+<span id="cb29-309"><a href="#cb29-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-310"><a href="#cb29-310" aria-hidden="true" tabindex="-1"></a><span class="fu">### Presentation &amp; Reproducibility (5 pts)</span></span>
+<span id="cb29-311"><a href="#cb29-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-312"><a href="#cb29-312" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Criteria <span class="pp">|</span> Points <span class="pp">|</span></span>
+<span id="cb29-313"><a href="#cb29-313" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------------------------------------|:-----------------------------:|</span></span>
+<span id="cb29-314"><a href="#cb29-314" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> File named correctly; document renders without errors; code and answers clearly organized by part; GitHub link points to the <span class="in">`hw3`</span> folder <span class="pp">|</span> 5 <span class="pp">|</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -161,23 +161,64 @@ words = text.split()
 14. Print `len(words)` — how many tokens are in the whole downloaded file?
 15. Use slicing to print the first 20 words: `words[0:20]`. Does this look like the actual poem, or something else?
 16. Try a few different slices, further into the list, until you find one that clearly looks like real Homer rather than Project Gutenberg's own text. Record the slice (the indices) you used, and what it printed.
+```{python} 
+print(len(words))
+print(words[0:20])
+print(words[5000:5020])
+```
 
 ### Sets
 
 17. Build `unique_words = set(words)`. Print `len(unique_words)`.
 18. Compute the type-token ratio for the whole file: `len(unique_words) / len(words)`.
 19. On Day 14 in class, the two 23-word opening lines we analyzed had type-token ratios around 0.78 and 0.91. Compare those to the ratio you just got for the whole *Odyssey*. Is it higher or lower — and in 2–3 sentences, explain *why* you think that happens as a text gets longer.
+```{python}
+unique_words = set(words)
+print(len(unique_words))
+print(len(unique_words) / len(words))
+```
+The type token ratio for the whoel Odyssey is about 0.107, which is much lower than the ratios of 0.78 and 0.91 from the short passages. As a text gets longer, words are repeated more often, so the number og the total words grows much faster than the number of unique words. 
 
 ### Dictionaries
 
 **New trick:** `.find()` works like the list `.index()` you already know from Day 12, but on a string — it returns the position where a match starts, or `-1` if there isn't one.
 
 20. Try `text.count("Odysseus")`. What do you get?
+```{python} 
+print(text.count("Odysseus"))
+```
 21. Whatever number you got, don't assume it means "Odysseus" is scattered evenly through the poem. Use `position = text.find("Odysseus")` to find where one match starts, then slice out `text[position - 150 : position + 150]` to read the sentence around it. Where does it actually turn up — in the middle of a book, or somewhere more limited, like the front matter? Once you've looked, use `"Ulysses" in text` to check which name Butler's own narrative actually relies on, then find the count that works.
+```{python} 
+position = text.find("Odysseus")
+print(position)
+print(text[position - 150 : position + 150])
+
+print("Ulysseus" in text) 
+print(text.count("Ulysseus")) 
+```
 22. Build a dictionary called `character_counts` that maps each of these names to how many times it appears in `text`, using the string method `.count()`: `"Ulysses"`, `"Penelope"` (his wife), `"Telemachus"` (his son), and `"Minerva"` (the goddess who helps him — also a Roman name, standing in for the Greek Athena).
+```{python} 
+character_counts = {
+    "Ulysseus": text.count("Ulysseus"),
+    "Penelope": text.count("Penelope"),
+    "Telemachus": text.count("Telemachus"),
+    "Minerva": text.count("Minerva")
+}
+```
 23. Print `character_counts`.
+```{python} 
+print(character_counts) 
+```
 24. Using dictionary indexing (not just eyeballing the printed output), confirm which of the four names appears most often.
+```{python}
+print(character_counts["Telemachus"])
+```
 25. Add one more key of your choice to `character_counts` — any word, name, or place you're curious about — using its `.count()` in `text`.
+```{python} 
+character_counts["Calypso"] = text.count("Calypso")
+print(character_counts) 
+```
+
 
 ------------------------------------------------------------------------
 
@@ -188,6 +229,8 @@ At the bottom of your document, write a short (4–6 sentence) reflection:
 -   What surprised you about working with a full downloaded text, compared to the short hand-typed lists we used in class?
 -   The file you downloaded still has Project Gutenberg's own license text mixed into the start and end, which you never removed. Given the poem itself is well over 100,000 words, do you think that leftover boilerplate meaningfully changed your token/type counts? Why or why not?
 -   Of the three structures — list, dict, set — which felt most natural for the character-counting task, and why?
+
+Working with the full text suprised me because it was a lot longer than the lists we used in class. The Project Gutenberg text probably changed the ocunts a little, but not much because the poem has over 100,000 words. Python made it much easier to work with all the words. I think a dictionary worked best for counting characters because it puts each name wiht its number. this made it easy to see which name showed up the most. 
 
 ------------------------------------------------------------------------
 
