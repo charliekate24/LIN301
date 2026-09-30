@@ -1,0 +1,54 @@
+title: "Langauge Differences Between Late Talkers and Typically Developing Children" 
+subtitle: "LIN301: Computation for Linguists" 
+author: "Charlie McNeece" 
+format: 
+    html: 
+    toc: true
+    toc-depth: 2 
+fontsize: 12pt 
+
+## 1. Dataset Description 
+
+For my final project, I will use language samples from the Ellis Weismer Corpus in the CHILDES Clinical English database. This corpus contains transcripts from late talkers and typically developing children at different ages. I chose two English-speaking children who were both 30 month old (2 years, 6 month) at the time of their langauge samples. One child is classified as a late talker (LT), and the other is classified as typically developing (TD). I will use a small portion of each transcript so that my final dataset contains approximately 500-1,000 words. 
+
+I found the dataset through the CHILDES Clinical English collection on TalkBank: <https://talkbank.org/childes/access/Clinical-Eng/EllisWeismer.html>. The transcripts use CHAT, a text-based transcription format, so the data can be downloaded and converted into plain text for analysis. 
+
+## 2. Rationale 
+
+I chose this dataset because I am interested in speech-langauge pathology and how children's language develops. I though it would be interesting to compare the language of a late talker with the language of a typically developing child of the same age. The two children may differ in the number and types of words they use and in length of their utterances. Looking at these differences can show how language development may vary between children and connects directly to the study of speech and language disorders. 
+
+## 3. Type of Analysis
+
+I plan to use frequencey and vocabulary analysis along with comparison. I will compare the words and utterances produced by the late talker with those produced by the typically developing child. The main units I will examine are words and utterances. Later in the semester, I can look at patterns such as the most frequently used words, the number of different words each child uses, and the length of their utterances. this will allow me to see whether there are noticeable differences between teh children's language samples. 
+
+## 4. Preliminary Questions
+
+I plan to investigate the following questions: 
+
+1. Does the typically devloping child use a greater variety of words than the late talker? 
+2. Does the typically developing child produce longer utterances than the late talker? 
+3. what words are used most frequently by each child? 
+4. Does the typically developing child use a greater variety of verbs than the late talker? 
+
+I expect the typically developing child to use a greater variety of words and produce longer utterances than the late talker. i expect this because the children are the same age, but the late talker was identified as having delayed expressive language development. 
+
+## 5. A Look at the Data
+
+Below is a short excerpt form the late talker transcript (participant 11005): 
+
+```
+*CHI:	this xxx .
+*INV:	that's a baby .
+*CHI:	xxx .
+*INV:	the daddy ?
+*CHI:	yeah daddy .
+*INV:	yeah .
+*CHI:	this girl .
+*INV:	the girl .
+*INV:	or the mommy .
+*INV:	yep .
+```
+
+## AI Use 
+
+I used ChatGPT to help brainstorm my project topic and find different data sets online that are available to use. 
