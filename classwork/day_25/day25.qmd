@@ -1,0 +1,323 @@
+## Step 0: Rebuild alice_df
+```{python}
+import re
+import pandas as pd
+
+# Stopwords (from Day 18)
+stopwords = ["the", "to", "and", "of", "a", "her", "i", "in", "was", "it",
+             "she", "he", "be", "that", "you", "not", "had", "as", "his", "for",
+             "with", "is", "have", "but", "at", "so", "all", "my", "been", "him",
+             "on", "by", "could", "would", "very", "no", "what", "which", "they",
+             "were", "there", "me", "an", "must", "this", "said", "from", "or",
+             "will", "any", "much", "than", "such", "their", "them", "if", "do",
+             "did", "one", "when", "your", "more", "are", "we", "who", "up",
+             "out", "down", "into", "s", "t"]
+
+# 1. Load Alice and cut off the Gutenberg header and footer
+with open("../../data/gutenberg/alice.txt", "r", encoding="utf-8") as f:
+    alice_lines = f.readlines()
+
+while not alice_lines[0].startswith("*** START"):
+    alice_lines = alice_lines[1:]
+alice_lines = alice_lines[1:]
+
+while not alice_lines[-1].startswith("*** END"):
+    alice_lines = alice_lines[:-1]
+alice_lines = alice_lines[:-1]
+
+alice_text = "".join(alice_lines)
+
+# 2. Split into chapters (and drop everything before Chapter I)
+chapters = re.split(r"\nCHAPTER [IVXL]+", alice_text)
+chapters = chapters[1:]
+
+# 3. One row per word, with its chapter
+rows = []
+chapter_num = 0
+
+for chapter in chapters:
+    chapter_num += 1
+    words = re.split(r"[\W_]+", chapter.lower())   # split on \W AND on _
+    words = [w for w in words if w != ""]
+    for w in words:
+        rows.append({"word": w, "chapter": chapter_num})
+
+alice_df = pd.DataFrame(rows)
+
+# 4. Save it for next time
+alice_df.to_csv("alice_words.csv", index=False, encoding="utf-8-sig")
+```
+
+## Check Your Setup
+```{python}
+print(len(alice_df))
+print(alice_df["chapter"].nunique())
+print(alice_df.head())
+```
+
+## .value_counts()
+```{python}
+alice_df["word"].value_counts()
+```
+
+```{python}
+content = alice_df[~alice_df["word"].isin(stopwords)]
+content["word"].value_counts().head(10)
+```
+
+## How Long is Each Chapter? 
+```{python}
+alice_df["chapter"].value_counts()
+```
+
+```{python}
+alice_df["chapter"].value_counts().sort_index()
+```
+
+## Review Activity 
+```{python}
+content = alice_df[~alice_df["word"].isin(stopwords)]
+```
+
+```{python}
+ch1_content = content[content["chapter"] == 1]
+print(ch1_content.head())
+```
+
+```{python}
+ch1_content["word"].value_counts().head(10)
+```
+
+```{python}
+ch1_content = alice_df[(alice_df["chapter"] == 1) & (~alice_df["word"].isin(stopwords))]
+ch1_content["word"].value_counts().head(5)
+```
+
+```{python}
+queen = alice_df[alice_df["word"] == "queen"]
+queen["chapter"].value_counts().sort_index()
+```
+
+## Activity: Filter, Then Count 
+```{python}
+cat = alice_df[alice_df["word"] == "cat"]
+print(cat["chapter"].value_counts().sort_index())
+```
+
+```{python}
+hatter = alice_df[alice_df["word"] == "hatter"]
+print(hatter["chapter"].value_counts().sort_index())
+```
+
+```{python}
+ly_words = alice_df[alice_df["word"].str.endswith("ly")]
+print(ly_words["chapter"].value_counts().sort_index())
+```
+
+```{python}
+turtle = alice_df[alice_df["word"] == "turtle"]
+print(turtle["chapter"].value_counts().sort_index())
+```
+
+```{python}
+gryphon = alice_df[alice_df["word"] == "gryphon"]
+print(gryphon["chapter"].value_counts().sort_index())
+```
+
+## The Old Way vs. The Pandas Way 
+```{python}
+queen_by_chapter = {}
+
+for w, ch in zip(alice_df["word"], alice_df["chapter"]):
+    if w == "queen":
+        if ch in queen_by_chapter:
+            queen_by_chapter[ch] += 1
+        else:
+            queen_by_chapter[ch] = 1
+
+print(queen_by_chapter)
+```
+
+```{python}
+alice_df[alice_df["word"] == "queen"]["chapter"].value_counts().sort_index()
+```
+
+## New Columns  
+``` {python}
+alice_df["length"] = alice_df["word"].str.len()
+alice_df.head()
+```
+
+```{python}
+alice_df["length"] = [len(w) for w in alice_df["word"]]
+```
+
+```{python}
+alice_df["is_ly"] = alice_df["word"].str.endswith("ly")
+alice_df["is_stopword"] = alice_df["word"].isin(stopwords)
+alice_df.head(10)
+```
+
+```{python}
+alice_df["text"] = "alice"
+alice_df.head()
+```
+
+## Types, Tokens, & Sorting  
+```{python}
+tokens = len(alice_df)
+types = alice_df["word"].nunique()     # number of unique words
+
+print(tokens, types, types / tokens)
+```
+
+```{python}
+alice_df.sort_values("length", ascending=False).head(10)
+```
+
+```{python}
+alice_types = alice_df.drop_duplicates("word")
+alice_types.sort_values("length", ascending=False).head(10)
+```
+
+## Building Mansfield Park 
+```{python}
+with open("../../data/gutenberg/mansfield_park.txt", "r", encoding="utf-8") as f:
+    mp_lines = f.readlines()
+
+while not mp_lines[0].startswith("*** START"):
+    mp_lines = mp_lines[1:]
+mp_lines = mp_lines[1:]
+
+while not mp_lines[-1].startswith("*** END"):
+    mp_lines = mp_lines[:-1]
+mp_lines = mp_lines[:-1]
+
+mp_text = "".join(mp_lines)
+
+mp_chapters = re.split(r"\nCHAPTER [IVXL]+", mp_text)
+mp_chapters = mp_chapters[1:]
+
+mp_rows = []
+chapter_num = 0
+
+for chapter in mp_chapters:
+    chapter_num += 1
+    words = re.split(r"[\W_]+", chapter.lower())   # split on \W AND on _
+    words = [w for w in words if w != ""]
+    for w in words:
+        mp_rows.append({"word": w, "chapter": chapter_num})
+
+mp_df = pd.DataFrame(mp_rows)
+
+print(len(mp_df))
+print(mp_df["chapter"].nunique())
+```
+
+```{python}
+mp_df["length"] = mp_df["word"].str.len()
+mp_df["is_ly"] = mp_df["word"].str.endswith("ly")
+mp_df["is_stopword"] = mp_df["word"].isin(stopwords)
+mp_df["text"] = "mansfield"
+```
+
+```{python}
+books = pd.concat([alice_df, mp_df], ignore_index=True)
+
+print(len(alice_df), len(mp_df), len(books))
+books["text"].value_counts()
+```
+
+```{python}
+books.head()
+books.tail()
+```
+
+## Grouping
+```{python}
+books.groupby("text")["length"].mean()
+```
+
+```{python}
+books.groupby("text").size()                # how many rows (tokens)?
+```
+
+```{python}
+books.groupby("text")["word"].nunique()     # how many types?
+```
+
+```{python}
+books.groupby("text")["length"].max()       # longest word?
+```
+
+## Counting Fairly 
+```{python}
+books[books["is_ly"]]["text"].value_counts()
+```
+
+```{python}
+books.groupby("text")["is_ly"].mean()
+```
+
+```{python}
+ly_rate = books.groupby("text")["is_ly"].mean() * 1000
+ly_rate
+```
+
+```{python}
+alice_df["word"].value_counts(normalize=True).head(10)
+```
+
+```{python}
+mp_df["word"].value_counts(normalize=True).head(10)
+```
+
+## Plotting 
+```{python}
+import matplotlib.pyplot as plt
+
+ly_rate.plot(kind="bar")
+plt.title("-ly Words per 1,000 Words")
+plt.xlabel("Text")
+plt.ylabel("Rate per 1,000 words")
+plt.show()
+```
+
+## Activity: Carroll vs. Austen 
+```{python}
+print(books.groupby("text")["length"].mean())
+```
+
+```{python}
+books["is_she"] = books["word"] == "she" 
+books["is_he"] = books["word"] == "he" 
+print(books.groupby("text")["is_she"].mean() * 1000)
+print(books.groupby("text")["is_he"].mean() * 1000)
+```
+
+```{python}
+print(books.groupby("text")["is_stopword"].mean())
+```
+
+```{python}
+import matplotlib.pyplot as plt 
+she_rate = books.groupby("text")["is_she"].mean() * 1000
+she_rate.plot(kind="bar")
+plt.title("'She' per 1000 words")
+plt.xlabel("Text")
+plt.ylabel("Rate per 1000 words") 
+plt.show()
+```
+
+```{python}
+alice_only = books[books["text"] == "alice"]
+alice_lengths = alice_only.groupby("chapter")["length"].mean()
+```
+
+```{python}
+alice_lengths.plot()
+plt.title("Average word length in Alice, by chapter") 
+plt.xlabel("chapter")
+plt.ylabel("average word length")
+plt.show()
+```
