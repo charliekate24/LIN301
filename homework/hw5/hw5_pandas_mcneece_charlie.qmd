@@ -1,0 +1,118 @@
+## Homework 5: The Big Bang Theory Transcript 
+
+Show: The Big Bang Theory 
+Episode: Season 1, Episode 1- Pliot 
+Source: Fandom 
+
+```{python}
+with open("hw5_raw.txt", encoding="utf-8") as file:
+    lines = file.readlines()
+print(len(lines))
+```
+
+```{python}
+clean_lines = []
+
+for line in lines:
+    cleaned = line.strip().lower()
+    if cleaned != "":
+        clean_lines.append(cleaned)
+
+print(len(clean_lines))
+```
+
+```{python}
+better_lines = []
+for line in clean_lines:
+    parts = line.split("*")
+    dialogue = ""
+
+    for i in range(len(parts)):
+        if i % 2 == 0:
+            dialogue = dialogue + parts[i]
+    
+    dialogue = dialogue.strip()
+
+    if ":" in dialogue: 
+        speaker, words = dialogue.split(":", 1)
+
+        if words.strip() != "":
+            better_lines.append(dialogue)
+
+print(len(better_lines))
+```
+
+
+```{python}
+final_lines = []
+
+for line in better_lines:
+    line = line.replace("howard (sings):", "howard:")
+    final_lines.append(line)
+
+print(len(final_lines))
+```
+
+```{python}
+for line in final_lines[-10:]:
+    print(line)
+```
+
+```{python}
+dialogue_data = []
+
+for line in final_lines:
+    parts = line.split(":", 1)
+    speaker = parts[0].strip()
+    dialogue = parts[1].strip()
+    dialogue_data.append({
+        "speaker": speaker,
+        "line": dialogue
+    }) 
+
+print(dialogue_data[:5])
+```
+
+```{python}
+dialogue_data = [
+    row for row in dialogue_data
+    if row["speaker"].strip().lower() != "scene"
+]
+
+print(len(dialogue_data))
+```
+
+```{python}
+import pandas as pd 
+df = pd.DataFrame(dialogue_data)
+df["line_number"] = range(1, len(df) + 1) 
+print(df.head())
+```
+
+```{python}
+df["character_length"] = df["line"].str.len()
+df["word_count"] = df["line"].str.split().str.len()
+df["is_sheldon"] = df["speaker"].str.lower() == "sheldon"
+print(df.head()) 
+```
+
+```{python}
+df.to_csv("hw5_pandas_mcneece_charlie.csv", index=False, encoding="utf-8-sig")
+print("CSV saved")
+```
+
+```{python}
+check_df = pd.read_csv("hw5_pandas_mcneece_charlie.csv")
+
+print(check_df.head(10))
+print(check_df.columns)
+print(len(check_df))
+```
+
+```{python}
+for line in final_lines:
+    print(line)
+```
+
+## Closing Paragraph 
+I used a transcript of an episode of The Big Bang Theory. Each row represents one line of dialogue and shows which character said it at the beginning of each line. I removed blank lines and scene descriptions, so it would only be the actual dialogue. I added columns to show the number of characters, number of words, and whether Sheldon was speaking. I noticed some lines were alot longer than others. My code reads the transcript, cleans it, puts it in a table, and I saved it as a CSV file. I used AI to troubleshoot my errors. 
