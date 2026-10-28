@@ -1,0 +1,176 @@
+## First Function 
+```{python}
+def pluralize(noun):
+    plural = noun + "s"
+    return plural
+```
+
+## Calling the Function
+```{python}
+animals = pluralize("hedgehog")
+print(animals)
+```
+
+## Activity 1: Write Two Functions 
+```{python}
+def past_tense(verb):
+    past = verb + "ed"
+    return past
+```
+
+```{python}
+test = ["the", "cat", "saw", "the", "dog"]
+def ttr(words):
+    t = len(set(words)) / len(words)
+    return t
+ttr(test)
+```
+
+## Two Versions of ttr
+```{python}
+def ttr_print(words):
+    print(len(set(words)) / len(words))
+
+def ttr_return(words):
+    return len(set(words)) / len(words)
+```
+
+```{python} 
+a = ttr_return(test)
+print(a * 100)
+```
+
+## Two Parameters 
+```{python}
+def ttr_first(words, n):
+    return len(set(words[:n])) / len(words[:n])
+```
+
+```{python}
+ttr_first(test, 3)
+```
+
+## Activity 2: Average Word Length 
+```{python}
+def avg_word_len(words):
+    total = 0
+    for w in words:
+        total += len(w)
+    return total / len(words)
+```
+
+## Activity 3: load_words()
+```{python}
+def load_words(filename):
+    # 1. open the file and read its lines
+    # 2. chop off the header and footer
+    # 3. join, lowercase, split, and remove empty strings
+    return words
+```
+```{python}
+import re
+
+try:
+    with open("../../data/gutenberg/" + filename, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+except FileNotFoundError:
+    print("Couldn't find a file — check the filename and location.")
+
+## text
+
+while not lines[0].startswith("*** START"):
+    lines = lines[1:]     # chop off the first line
+lines = lines[1:]         # chop off the *** START line itself
+
+while not lines[-1].startswith("*** END"):
+    lines = lines[:-1]    # chop off the last line
+lines = lines[:-1]        # chop off the *** END line itself
+
+text = "".join(lines)
+
+## cleaning and splitting
+words = re.split(r"[\W]+", text.lower())
+words = [w for w in words if w != ""]
+```
+
+```{python}
+import re
+
+def load_words(filename):
+    with open("../../data/gutenberg/" + filename, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    while not lines[0].startswith("*** START"):
+        lines = lines[1:]
+    lines = lines[1:]
+
+    while not lines[-1].startswith("*** END"):
+        lines = lines[:-1]
+    lines = lines[:-1]
+
+    text = "".join(lines)
+    words = re.split(r"[\W]+", text.lower())
+    words = [w for w in words if w != ""]
+    return words
+```
+
+## Step 2: One Report Per Book 
+```{python}
+def report(title, words):
+    ttr = len(set(words)) / len(words)
+    ttr_10000 = len(set(words[:10000])) / len(words[:10000])
+
+    letters = 0
+    for w in words:
+        letters += len(w)
+
+    print(title, "TTR:", ttr)
+    print(title, "TTR (10,000 words):", ttr_10000)
+    print(title, "Average Word Length:", letters / len(words))
+    return ttr_10000
+```
+
+## The Whole Thing 
+```{python}
+import re
+import matplotlib.pyplot as plt
+
+def load_words(filename):
+    with open("../../data/gutenberg/" + filename, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    while not lines[0].startswith("*** START"):   # chop the header
+        lines = lines[1:]
+    lines = lines[1:]
+    while not lines[-1].startswith("*** END"):    # chop the footer
+        lines = lines[:-1]
+    lines = lines[:-1]
+
+    text = "".join(lines)
+    words = re.split(r"[\W]+", text.lower())
+    return [w for w in words if w != ""]
+
+def report(title, words):
+    ttr = len(set(words)) / len(words)
+    ttr_10000 = len(set(words[:10000])) / len(words[:10000])
+
+    letters = 0
+    for w in words:
+        letters += len(w)
+
+    print(title, "TTR:", ttr)
+    print(title, "TTR (10,000 words):", ttr_10000)
+    print(title, "Average Word Length:", letters / len(words))
+    return ttr_10000
+
+alice_ttr_10000 = report("Alice", load_words("alice.txt"))
+mansfield_ttr_10000 = report("Mansfield Park", load_words("mansfield_park.txt"))
+odyssey_ttr_10000 = report("The Odyssey", load_words("odyssey.txt"))
+
+plt.bar(["Lewis Carroll", "Jane Austen", "Homer (tr. Butler)"], [alice_ttr_10000, mansfield_ttr_10000, odyssey_ttr_10000])
+plt.title("TTR Comparison: Alice vs Mansfield Park vs The Odyssey")
+plt.xlabel("Author")
+plt.ylabel("TTR")
+plt.show()
+```
+
