@@ -1,0 +1,155 @@
+## Step 1
+```{python}
+from pathlib import Path
+import pandas as pd 
+import re
+
+folder = Path(".")
+
+files = sorted(folder.glob("*.cha"))
+
+print("Files found:", len(files))
+
+for file in files:
+    print(file.name)
+```
+
+## Step 2
+```{python}
+for file in files:
+    text = file.read_text(encoding="utf-8-sig")
+    print(file.name)
+    print(text[:500])
+    print()
+```
+
+## Step 3
+```{python}
+def clean_transcript(file):
+    lines = file.read_text(encoding="utf-8-sig").splitlines()
+    cleaned = []
+
+    for line in lines:
+        if line.startswith(("*CHI:", "*INV:")):
+            speaker, speech = line.split(":", 1)
+
+            speech = re.sub("r\x15.*?\x15", " ", speech)
+            speech = re.sub(r"\[[^\]]*\]", " ", speech)
+            speech = re.sub(r"&[=+\-]?\S+", " ", speech)
+            speech = re.sub(r"\b(?:xxx|yyy|www)\b", " ", speech, flags=re.I)
+            speech = re.sub(r"\b\d+_\d+\b", " ", speech)
+            speech = re.sub(r"[^\w\s']", " ", speech)
+            speech = re.sub(r"\s+", " ", speech).strip().lower()
+
+            if speech: 
+                cleaned.append(f"{speaker}: {speech}")
+
+    return cleaned 
+
+for file in files:
+    cleaned = clean_transcript(file)
+
+    print(file.name)
+    print("Toatl utterances:", len(cleaned))
+    print("First 10 utterances:")
+
+    for line in cleaned[:10]:
+        print(line)
+
+    print()
+
+for file in files:
+    cleaned = clean_transcript(file)
+
+    child_lines = [
+        line for line in cleaned
+        if line.startswith("*CHI")
+    ]
+
+    print(file.name)
+    print("Child utterances:", len(child_lines))
+    print("First 10 cleaned child utterances:")
+
+    for line in child_lines[:10]:
+        print(line)
+
+    print()
+```
+
+## Step 4 
+```{python}
+rows = []
+
+for file in files:
+    cleaned = clean_transcript(file)
+
+    for line in cleaned:
+        speaker, speech = line.split(":", 1)
+
+        rows.append({
+            "child": file.stem,
+            "speaker": speaker,
+            "utterances": speech.strip()
+        })
+
+df = pd.DataFrame(rows)
+
+print(df.head(10))
+print("total rows:", len(df))
+```
+
+## Step 5 
+```{python}
+print("Total rows:", len(df))
+
+print("First 5 rows:")
+print(df.head())
+
+print("Last 5 rows:")
+print(df.tail())
+
+print("Middle 5 rows:")
+middle = len(df) // 2
+print(df.iloc[middle:middle+5])
+```
+
+## Step 6
+```{python}
+df.to_csv(
+    "project2_mcneece_charlie.csv",
+    index=False,
+    encoding="utf-8-sig"
+)
+
+print("CSV file saved successfully")
+```
+
+## Step 7
+```{python}
+check = pd.read_csv("project2_mcneece_charlie.csv")
+
+print("original rows:", len(df))
+print("Reloaded rows:", len(check))
+
+print("Original columns:", df.columns.tolist())
+print("Reloaded columns:", check.columns.tolist())
+
+print(check.head())
+```
+
+## Deliverables 
+
+## 1. The Raw Data 
+I used two child langauge transcripts from the Elis Weismer collection in the CHILDES database. One transcript is from a late talking child, and the other is from a typically dveloping child. Both children were aorund 2 and a half years old. The transcripts contain conversations between the child and an investigator. I kept the same data source from component one. Source: <https://talkbank.org/childes/access/Clinical-Eng/EllisWeismer.html>
+
+## 2. Cleaning Steps 
+I first loaded both .cha files into python. I removed headers, timestamps, and other symbold that were not neccessary. I kept the lines spoken by the child (*CHI) and investigator(*INV) so I could keep the conversation between them. I also removed letters that were not words like "XXX". I converated the whole text to lowercase. One step I made was removing nonwords. That made it easier to count and compare the actual words, but also means some of what teh child said was not able to transcribe. 
+
+## 3. The Clean Table 
+Each row represents one cleaned utterance from either the child or investigator. The child column identifies which transcript the utterance came from. The speaker column shows whether the child or investigator was speaking. The utterances column contains the cleaned speech. There is around 600 rows. 
+
+## 4. Still Messy 
+Words like "where's" and "that's" could affect my word count. I need to decide how to identify verbs and count unique words. I removed timestamps and some transcript that could have provided additional information, but they were not necccessary. 
+
+## AI Use:
+I used AI to help trouble shhot my errors, and to help me figure out what specific part was wrong. 

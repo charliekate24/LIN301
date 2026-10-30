@@ -1,0 +1,230 @@
+---
+title: "Computation for Linguists"
+subtitle: "Learning the Command Line: Regular Expressions & Advanced Grep"
+date: "September 4, 2026"
+author: "Dr. Andrew M. Byrd"
+format:
+  revealjs:
+    css: header_shrink.css
+    theme: beige
+    slide-number: true
+    center: true
+    toc: true
+    toc-title: "Plan for the Day"
+    toc-depth: 1
+editor: visual
+---
+
+# Review
+
+- What did you learn last time?
+
+## Review: `wc`, `grep`, and `|`
+
+- `wc file.txt` → identify number of lines, words, and characters in `file.txt`
+
+  - `-l`, `-w`, `-c`
+
+- `grep "word" file.txt` → search for a string in a file
+
+- Combine with pipes:
+
+  - `grep "word" file.txt | wc -l`
+
+## Google & Microsoft Docs
+
+How are Google docs and Microsoft Word docs fundamentally different from `.txt`, `.html`, and `.tex` files?
+
+## What's Going on Here?
+
+Analyze the following block of code, and describe what happens in each line.
+
+``` bash
+$ cd ~/LIN_301/classwork/5_file_extensions_grep
+$ curl -o pride_and_prejudice.txt https://gutenberg.org/files/1342/1342-0.txt
+$ mkdir p_and_p
+$ mv pride_and_prejudice.txt p_and_p
+$ mv pride_and_prejudice.txt p_and_p.txt
+$ cd p_and_p
+$ grep "yes" p_and_p.txt | wc -l
+```
+
+## Review Activity
+
+Using Terminal:
+
+- Navigate to your `LIN_301/classwork` folder
+
+- Create a new folder called `6_regex_advanced_grep` and `cd` into it — this is where all of today's work will live
+
+- Just like last class, copy today's slides into this folder from `301_2026` so you're working from your own copy, not the original:
+
+  ``` bash
+  cp ~/301_2026/slides/2_command_prompt/6_regex_advanced_grep.qmd .
+  ```
+
+- Create a folder called `alice`
+
+- Download *Alice's Adventures in Wonderland*
+
+  - <https://www.gutenberg.org/cache/epub/11/pg11.txt>
+  - name it `alice.txt`
+
+- Search for "Alice"
+
+- How many instances of "Alice" are there in the story? (Or more specifically, how many lines occur in the book that contain at least one "Alice"?)
+
+  - What happens if you search for "alice"?
+
+# Regex
+
+## What Are Regular Expressions?
+
+- A **language for patterns**
+  - Pronounced \[ˌɹɛg.ˈɛks\]
+- Lets us search for:
+  - Word forms
+  - Phonological environments
+  - Structured data
+
+## Regular Expressions are WEIRD (but cool!)
+
+- Today we'll learn how basic `regex` commands can be used in the Terminal
+
+- While we're currently working in the Terminal, we will return to all of this later in the semester once we have some Python under our belts
+
+## Our First Regex
+
+- Type in the following code:
+
+``` bash
+grep -E "c.t" alice.txt
+```
+
+- Note the `-E`
+  - This prompts `grep` to use **Extended Regular Expressions**
+- What does `.` do?
+
+## Our First Regex
+
+- `.` → any single character\
+
+## Other Useful Flags
+
+- o → print only matches
+- c → count matches
+
+``` bash
+grep -Eo "c.t" alice.txt
+grep -Ec "c.t" alice.txt
+```
+
+## Narrowing Down our Search
+
+- So far we're able to identify *any* sequence of the shape "c_t"
+
+``` bash
+grep -Ec "c.t" alice.txt
+```
+
+## Narrowing Down our Search
+
+- Perhaps we would want to specify certain vowel letters:
+
+``` bash
+grep -Ec "c[aou]t" alice.txt   
+```
+
+## Narrowing Down our Search
+
+- Perhaps we would want to exclude certain vowel letters:
+
+``` bash
+grep -Ec "c[^ao]t" alice.txt
+```
+
+## Narrowing Down our Search
+
+- Perhaps we would want to identify a range of certain vowel letters:
+
+``` bash
+grep -Ec "[a-q]at" alice.txt
+```
+
+- (Also works for digits: e.g., \[0-9\])
+
+## Narrowing Down our Search
+
+- What if we want to say "begins with `cat`"?
+
+``` bash
+grep -Ec "\<cat" alice.txt
+```
+
+## Narrowing Down our Search
+
+- Let's see actual examples:
+
+``` bash
+grep -E "\<cat" alice.txt
+```
+
+- How would we say "ends with `cat`"?
+
+## Narrowing Down our Search
+
+- How would we say "either `cat` or `cats`"?
+
+``` bash
+grep -E "\<cats?" alice.txt
+```
+
+## Anchors
+
+- \^ → beginning of line
+- \$ → end of line
+
+``` bash
+grep -E "^c.t" alice.txt   # lines starting with "c.t"
+grep -E "c.t$" alice.txt    # lines ending with "c.t"
+```
+
+## Narrowing Down our Search
+
+- "(Alice\|Rabbit)" → "Alice" or "Rabbit" <!-- -   (ab)+ → one or more “ab” sequences -->
+
+``` bash
+grep -E "(Alice|Rabbit)" alice.txt
+```
+
+## For a Handy List of Regex
+
+``` bash
+curl -o regex.txt https://winjapati.github.io/courses/301/regex.txt
+```
+
+## Recap: Regex So Far
+
+- `-E` → use Extended Regular Expressions with `grep`
+- `-Eo` → print only the matching text
+- `-Ec` → print a count of matching lines
+- `.` → any single character
+- `[aou]` → any one of the listed characters
+- `[^ao]` → any character *except* the listed ones
+- `[a-q]` → a range of characters (also works for digits, e.g. `[0-9]`)
+- `\<` → start of a word
+- `?` → the preceding character is optional (0 or 1)
+- `^` → beginning of a line
+- `$` → end of a line
+- `(Alice|Rabbit)` → this OR that
+
+# Activity: Putting `regex` to work
+
+## Group Activity
+
+- Within `alice.txt`, using `grep -E`, `grep -Eo`, and `grep -Ec`:
+  1.  All words beginning with "a"/ "A" or "z" / "Z";
+  2.  All four-letter words;
+  3.  Lines ending with a question mark (use `\?`);
+  4.  The total number of words with repeated vowels ("food", "see"; for this use `\1` to capture the exact same text as the previous group; thus (\[tp\])\\1 = "tt", "pp");
+  5.  The total number of articles ("the, The, a, A, an, An") in the story.
