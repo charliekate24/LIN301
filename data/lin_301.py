@@ -1,17 +1,8 @@
 import os
 import re
-import pandas as pd 
+import pandas as pd
 
-HERE = os.path.dirname(__file__)   # the folder lin_301.py lives in: data/
-
-stopwords = ["the", "to", "and", "of", "a", "her", "i", "in", "was", "it",
-             "she", "he", "be", "that", "you", "not", "had", "as", "his", "for",
-             "with", "is", "have", "but", "at", "so", "all", "my", "been", "him",
-             "on", "by", "could", "would", "very", "no", "what", "which", "they",
-             "were", "there", "me", "an", "must", "this", "said", "from", "or",
-             "will", "any", "much", "than", "such", "their", "them", "if", "do",
-             "did", "one", "when", "your", "more", "are", "we", "who", "up",
-             "out", "down", "into", "s", "t"]
+HERE = os.path.dirname(__file__)   # the folder lin301.py lives in: data/
 
 def ttr(words):
     return len(set(words)) / len(words)
@@ -42,14 +33,12 @@ def stopword_rate(words, stopwords):
 def load_text(filename):
     with open(os.path.join(HERE, "gutenberg", filename), "r", encoding="utf-8") as f:
         lines = f.readlines()
-
     while not lines[0].startswith("*** START"):
         lines = lines[1:]
     lines = lines[1:]
     while not lines[-1].startswith("*** END"):
         lines = lines[:-1]
     lines = lines[:-1]
-
     return "".join(lines)
 
 def load_words(filename):
@@ -61,11 +50,12 @@ def report(title, words):
     print(title, "TTR:", ttr(words))
     print(title, "TTR (10,000 words):", ttr_first(words))
     print(title, "Average Word Length:", avg_word_len(words))
+    print(title, "-ly words per 1,000:", ly_rate(words))
     return ttr_first(words)
 
 def book_to_df(filename, label):
     text = load_text(filename)
-    chapters = re.split(r"(?im)^\s*CHAPTER\s+(?:[IVXLCDM]+|\d+)\b", text)
+    chapters = re.split(r"(?im)^CHAPTER\s+(?:[IVXLCDM]+|\d+)\b", text)
     chapters = chapters[1:]
     rows = []
     chapter_num = 0
@@ -79,28 +69,79 @@ def book_to_df(filename, label):
     df["text"] = label
     return df
 
-def add_columns(df, stopwords):
+def add_columns(df):
     df["length"] = df["word"].str.len()
     df["is_ly"] = df["word"].str.endswith("ly")
-    df["is_stopword"] = df["word"].isin(stopwords)
     return df
 
-import sys
-sys.path.append("../../data")
-import lin_301
-import matplotlib.pyplot as plt
+def book_to_spacy_df(filename, label, nlp):
+    text = load_text(filename)
+    chapters = re.split(r"(?im)^CHAPTER\s+(?:[IVXLCDM]+|\d+)\b", text)
+    chapters = chapters[1:]
+    rows = []
+    chapter_num = 0
+    for chapter in chapters:
+        chapter_num += 1
+        doc = nlp(chapter)
+        sentence_num = 0
+        for sent in doc.sents:
+            sentence_num += 1
+            for token in sent:
+                if token.is_alpha:
+                    rows.append({"word": token.text.lower(),
+                                 "lemma": token.lemma_.lower(),
+                                 "pos": token.pos_,
+                                 "is_stop": token.is_stop,
+                                 "sentence": sentence_num,
+                                 "chapter": chapter_num})
+    df = pd.DataFrame(rows)
+    df["text"] = label
+    return df
 
-alice_ttr_10000 = lin_301.report("Alice", lin_301.load_words("alice.txt"))
-mansfield_ttr_10000 = lin_301.report("Mansfield Park", lin_301.load_words("mansfield_park.txt"))
-odyssey_ttr_10000 = lin_301.report("Romeo and Juliet", lin_301.load_words("romeo.txt"))
-moby_ttr_10000 = lin_301.report("The Adventures of Sherlock Holmes", lin_301.load_words("sherlock.txt"))
+def book_to_svo_df(filename, label, nlp):
+    text = load_text(filename)
+    chapters = re.split(r"(?im)^CHAPTER\s+(?:[IVXLCDM]+|\d+)\b", text)
+    chapters = chapters[1:]
+    rows = []
+    chapter_num = 0
+    for chapter in chapters:
+        chapter_num += 1
+        doc = nlp(chapter)
+        for token in doc:
+            if token.pos_ == "VERB":
+                subjects = [c for c in token.children if c.dep_ == "nsubj"]
+                objects = [c for c in token.children if c.dep_ == "dobj"]
+                if subjects and objects:
+                    rows.append({"subject": subjects[0].lemma_.lower(),
+                                 "verb": token.lemma_.lower(),
+                                 "object": objects[0].lemma_.lower(),
+                                 "chapter": chapter_num})
+    df = pd.DataFrame(rows)
+    df["text"] = label
+    return df
 
-plt.bar(["Lewis Carroll", "Jane Austen", "William Shakespeare", "Conan Doyle"],
-        [alice_ttr_10000, mansfield_ttr_10000, odyssey_ttr_10000, moby_ttr_10000])
-plt.title("TTR Comparison: Four Authors")
-plt.xlabel("Author")
-plt.ylabel("TTR")
-plt.show()
+def is_vowel(letter):
+    vowels = "aeiouāēīōū"
+    return letter in vowels
 
+def cv_pattern(word):
+    pattern = ""
+    for letter in word:
+        if is_vowel(letter):
+            pattern += "V"
+        else:
+            pattern += "C"
+    return pattern 
 
+def syllabify(word):
+    syllables = []
+    current = ""
+    for letter in word:
+        current += letter
+        if is_vowel(letter):
+            syllables.append(current)
+            current = ""
+    return syllables
 
+def count_syllables(word):
+    return len(syllabify(word))

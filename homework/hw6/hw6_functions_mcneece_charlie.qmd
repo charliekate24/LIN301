@@ -1,0 +1,130 @@
+## Part 1 Write your Functions
+
+```{python}
+def is_vowel(letter):
+    vowels = "aeiouāēīōū"
+    return letter in vowels
+```
+
+```{python}
+def cv_pattern(word):
+    pattern = ""
+    for letter in word:
+        if is_vowel(letter):
+            pattern += "V"
+        else:
+            pattern += "C"
+    return pattern 
+```
+
+```{python}
+def syllabify(word):
+    syllables = []
+    current = ""
+    for letter in word:
+        current += letter
+        if is_vowel(letter):
+            syllables.append(current)
+            current = ""
+    return syllables
+```
+
+```{python}
+def count_syllables(word):
+    return len(syllabify(word))
+```
+
+## Part 2: Explore the Word List 
+
+```{python}
+import pandas as pd 
+import sys
+
+sys.path.append("../../data")
+
+from lin_301 import is_vowel, cv_pattern, syllabify, count_syllables
+
+df = pd.read_csv("hawaiian_words.csv", encoding="utf-8")
+
+df.head()
+```
+
+```{python}
+df["cv"] = [cv_pattern(word) for word in df["word"]]
+
+df["syllables"] = [".".join(syllabify(word)) for word in df["word"]]
+
+df["n_syllables"] = [count_syllables(word) for word in df["word"]]
+
+df.head()
+```
+
+```{python}
+print("Average syllables:", df["n_syllables"].mean())
+
+print("Words with the most syllables:")
+df.sort_values("n_syllables", ascending=False).head()
+```
+
+## Question 1
+The average number of syllables per word is 3.11. The word with the most syllables is humuhumunukunukuāpuaʻa, which has 12 syllables. 
+
+## Question 2
+
+```{python}
+print("Number of words for each syllable count:")
+
+df.groupby("n_syllables").size()
+```
+
+There are 17 words with 2 syllables, 16 with 3, 9 with 4, 2 with 5, and 1 word with 12 syllables. Most of the words in the list either have 2 or 3 syllables. 
+
+## Question 3
+
+```{python}
+print("Words with two consonants in a row:")
+print(df[df["cv"].str.contains("CC")])
+
+print("words ending in a consonant:")
+print(df[df["cv"].str.endswith("C")])
+```
+
+None of the words have 2 consonants in a row or end in a consonant. 
+
+## Question 4
+
+```{python}
+rows = []
+
+for word in df["word"]:
+    for syllable in syllabify(word):
+        rows.append({"word": word, "syllable": syllable})
+
+syllable_df = pd.DataFrame(rows)
+
+print("First five rows:")
+print(syllable_df.head())
+
+print("10 most common syllables:")
+print(syllable_df.groupby("syllable").size().sort_values(ascending=False).head(10))
+```
+
+The 10 most common syllables are i (9 times), ha (7), a (7), ka (7), na (7), le (6), hu (6), u (6), ma (6), and ne (4). The most common syllable is i which shows up 9 times. 
+
+## Part 3: Try English
+
+```{python}
+english_words = ["banana", "splash", "strengths"]
+
+for word in english_words:
+    print("Word:", word)
+    print("CV pattern:", cv_pattern(word))
+    print("syllables:", syllabify(word))
+    print()
+```
+
+## Question 5
+Out of the three words, banana was the only one to come out right. Splash and strengths did not come up correctly, it cut off the seconf half of the word. This does not happen with Hawaiian words because they always end in a vowel and do not have consonant clusters. This shows English has more complicated speech structure. 
+
+## AI Use 
+I used AI to help me figure out my errors and hwo to fix them. 
