@@ -1,0 +1,154 @@
+---
+title: "HW 7: Semantic Analysis of Macbeth"
+author: "Charlie Kate McNeece" 
+format: html
+execute:
+  echo: true
+---
+
+## Setup
+```{python} 
+import sys
+sys.path.append("../../data")
+from lin_301 import *
+
+import spacy
+import pandas as pd
+import unicodedata
+import nltk
+```
+
+```{python}
+
+# %%
+import spacy
+
+nlp_en = spacy.load("en_core_web_sm")
+print("English works")
+
+nlp_fi = spacy.load("fi_core_news_sm")
+print("Finnish works")
+
+nlp_el = spacy.load("el_core_news_sm")
+print("Greek works")
+```
+
+## Part 1: Build Your Tables
+
+```{python}
+df_en = book_to_spacy_df(
+    "../../data/gutenberg/macbeth_en.txt",
+    "English",
+    nlp_en,
+    chapter_word="ACT"
+)
+
+print(df_en.head())
+print(df_en.columns)
+```
+
+```{python}
+df_fi = book_to_spacy_df(
+    "../../data/gutenberg/macbeth_fi.txt",
+    "Finnish",
+    nlp_fi,
+    chapter_word="(?:ENSIMMÄINEN|TOINEN|KOLMAS|NELJÄS|VIIDES) NÄYTÖS"
+)
+
+print(df_fi.head())
+print(df_fi.columns)
+```
+
+```{python}
+df_el = book_to_spacy_df(
+    "../../data/gutenberg/macbeth_el.txt",
+    "Greek",
+    nlp_el,
+    chapter_word="ΠΡΑΞΙΣ"
+)
+
+print(df_el.head())
+print(df_el.columns)
+```
+
+```{python}
+print("English acts:", df_en["chapter"].nunique())
+print("Finnish acts:", df_fi["chapter"].nunique())
+print("Greek acts:", df_el["chapter"].nunique())
+```
+
+```{python}
+print("English words:", len(df_en[df_en["pos"] != "PUNCT"]))
+print("Finnish words:", len(df_fi[df_fi["pos"] != "PUNCT"]))
+print("Greek words:", len(df_el[df_el["pos"] != "PUNCT"]))
+```
+
+## Part 2: Investigate (Parts of Speech)
+
+```{python}
+parts = ["NOUN", "VERB", "ADJ"]
+
+for language, df in [
+    ("English", df_en),
+    ("Finnish", df_fi),
+    ("Greek", df_el),
+]:
+    words = df[df["pos"] != "PUNCT"]
+    total = len(words)
+
+    print(language)
+
+    for pos in parts:
+        count = len(words[words["pos"] == pos])
+        rate = round(count / total * 1000, 2)
+        print(pos, rate)
+
+    print()
+```
+
+The biggest difference I noticed was the number of nouns in Finnish compared to English and Greek. Finnish had around 317 nouns, while English had around 194 and Greek had around 205. Finnish also had more verbs than both. The adjective count was pretty similar between all three, but Finnish had aorund 10 less than English. 
+
+## Part 2: Investigate (Scripts) 
+
+```{python}
+import unicodedata
+
+for language, df in [
+    ("English", df_en),
+    ("Finnish", df_fi),
+    ("Greek", df_el),
+]:
+    scripts = []
+
+    for word in df["word"]:
+        if word and word[0].isalpha():
+            script = unicodedata.name(word[0]).split()[0]
+            scripts.append(script)
+
+    counts = pd.Series(scripts).value_counts()
+
+    print(language)
+    print(counts)
+    print()
+```
+
+```{python}
+latin_words = []
+
+for word in df_el["word"]:
+    if word and word[0].isalpha():
+        if unicodedata.name(word[0]).split()[0] == "LATIN":
+            latin_words.append(word)
+
+print(pd.Series(latin_words).value_counts().head(20))
+```
+
+I looked at the letters used in all three versions of Macbeth. English and Finnish both use English letter, while Greek uses Greek latters. I noticed almost all Greek words started with a Greek letter except one. I also noticed it makes a huge difference on your results if you do not delete the translators notes. 
+
+## Part 3: Reflection 
+
+I think some of the differences come from tha languages because they all work differently. The translators might have also changed some words when translating Macbeth. I also think the computer programs could have made some mistakes when looking at the words. Macbeth is also a play so the way it is written could affect the results too. 
+
+## AI Use 
+ I used AI to help me translate some of the Greek and Finnish words to make sure I was doing the right thing. I also used it to help me make sure my text were cleaned properly. 
+
