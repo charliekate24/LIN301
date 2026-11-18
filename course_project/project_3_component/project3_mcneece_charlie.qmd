@@ -1,0 +1,89 @@
+## Project Component 3
+## Language Differences Between Late Talkers and Typically Developing Children 
+
+## 1. Analysis Plan 
+For this project, I am comparing the language of two 30 month old children. One is a late talker and the other is typically developing. I want to answer 2 questions: Does the typically developing child use a greater variety of words than the late talker? and Does the typically developing child produce longer utterances than the late talker? I expect the typicall developing child will use more different words and longer utterances than the late talker. I will use python to count the different words each child uses and calculate the average number of words per utterance. 
+
+## 2. Data Check 
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+from collections import Counter 
+from pathlib import Path 
+
+files = list(Path.home().rglob("project2_mcneece_charlie*.csv"))
+print(files)
+df = pd.read_csv(files[0])
+print(df.head())
+print(len(df))
+print(df.tail())
+```
+
+I loaded my CSV file from component 2 using python. The file has 600 rows, and I checked the first and last five rows to make sure the data loaded correctly. The data includes the child's group, speaker, and utterances. The file looks ready for my analysis. 
+
+## 3. Analysis
+```{python}
+df["child"].value_counts()
+```
+
+```{python}
+child_df = df[df["speaker"] == "*CHI"]
+
+child_df["child"].value_counts()
+```
+
+```{python}
+child_df = child_df.copy()
+
+child_df["word_count"] = child_df["utterances"].str.split().str.len()
+
+child_df[["child","utterances", "word_count"]].head()
+```
+
+## Analysis 1: Vocabulary Comprehension
+```{python}
+for child, group in child_df.groupby("child"):
+    words = " ".join(group["utterances"]).lower().split()
+    unique_words = set(words)
+    print(child, len(unique_words))
+```
+
+For my analysis, I counted how many diffeent words each child used by grouping their utterances and counting the unique words. The typically developing child used 138 different words and the late talker used 78.
+
+## Analysis 2: Average Utterance Length
+```{python}
+child_df.groupby("child")["word_count"].mean()
+```
+
+I calculated the average number of words each child used per utterance. The typically developing child averaged 3.78 words per utterance and the late talker averaged 2.17. This shows the typically developing child used longer utterances. 
+
+## 4. Visualization
+```{python}
+import matplotlib.pyplot as plt
+
+children = ["Late Talker", "Typically Developing"]
+different_words = [78, 138]
+
+plt.bar(children, different_words)
+plt.ylabel("Number of Different Words")
+plt.title("Vocabulary Comparison")
+plt.show()
+```
+
+```{python}
+children = ["Late Talker", "Typically Developing"]
+average_words = [2.17, 3.78]
+
+plt.bar(children, average_words)
+plt.ylabel("Average Words per Utterance")
+plt.title("Average Utterance Length Comparison")
+plt.show()
+```
+
+## 5. Interpretation
+The typically developing child used more different words than the late talker, with 138 compared to 78. The typically developing child also used longer utterances, averaging 3.78 compared to 2.17. These results matched what I expected because I thought the typically developing child would use more words and longer utterances. One limitation is that I only compared two children, so the results might not be same for other children. For my final project, I could add one more child to see if the results are similar. 
+
+## 6. Save Results 
+```{python}
+child_df.to_csv("project3_mcneece_charlie.csv", index=False, encoding="utf-8-sig")
+```
